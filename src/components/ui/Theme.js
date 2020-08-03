@@ -18,8 +18,12 @@ export default createMuiTheme({
     },
   },
   typography: {
-    h5: {
-      fontWeight: 500,
+    tab: {
+      fontFamily: "Poppins, sans",
+      textTransform: "none",
+      fontWeight: "700",
+      fontSize: "1rem",
+      marginLeft: "25px",
     },
   },
 });

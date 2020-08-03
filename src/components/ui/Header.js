@@ -1,8 +1,14 @@
-import React from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/styles";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+
+import logo from "../../assests/logo1.png";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -17,17 +23,107 @@ function ElevationScroll(props) {
   });
 }
 
+const useStyles = makeStyles((theme) => ({
+  toolbarMargin: {
+    ...theme.mixins.toolbar,
+  },
+  logo: {
+    height: "1.2rem",
+  },
+  tabContainer: {
+    marginLeft: "auto",
+  },
+  tab: {
+    ...theme.typography.tab,
+    minWidth: 30,
+  },
+  button: {
+    ...theme.typography.tab,
+    borderRadius: "50px",
+    color: "white",
+  },
+}));
+
 const Header = () => {
+  const classes = useStyles();
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (window.location.pathname === "/" && value !== 0) {
+      setValue(0);
+    } else if (window.location.pathname === "/datasets" && value !== 1) {
+      setValue(1);
+    } else if (window.location.pathname === "/newsfeed" && value !== 2) {
+      setValue(2);
+    } else if (window.location.pathname === "/about" && value !== 3) {
+      setValue(3);
+    } else if (window.location.pathname === "/public_api" && value !== 4) {
+      setValue(4);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  const handleChange = (e, value) => {
+    setValue(value);
+  };
+
   return (
-    <ElevationScroll>
-      <AppBar color="secondary">
-        <Toolbar>
-          <Typography variant="h5" color="primary">
-            climate monitor
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </ElevationScroll>
+    <Fragment>
+      <ElevationScroll>
+        <AppBar color="secondary">
+          <Toolbar>
+            <Button component={Link} to="/">
+              <img
+                src={logo}
+                alt="climate monitor logo"
+                className={classes.logo}
+              />
+            </Button>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              className={classes.tabContainer}
+              indicatorColor="primary"
+            >
+              <Tab
+                className={classes.tab}
+                label="Home"
+                component={Link}
+                to="/"
+              />
+              <Tab
+                className={classes.tab}
+                label="Data"
+                component={Link}
+                to="/datasets"
+              />
+              <Tab
+                className={classes.tab}
+                label="News"
+                component={Link}
+                to="/newsfeed"
+              />
+              <Tab
+                className={classes.tab}
+                label="About"
+                component={Link}
+                to="/about"
+              />
+            </Tabs>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              component={Link}
+              to="/public_api"
+            >
+              Public API
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
+      <div className={classes.toolbarMargin} />
+    </Fragment>
   );
 };
 
