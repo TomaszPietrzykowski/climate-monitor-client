@@ -51,17 +51,18 @@ const Header = () => {
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
       setValue(0);
-    } else if (window.location.pathname === "/datasets" && value !== 1) {
+    } else if (window.location.pathname === "/data" && value !== 1) {
       setValue(1);
-    } else if (window.location.pathname === "/newsfeed" && value !== 2) {
+    } else if (window.location.pathname === "/news" && value !== 2) {
       setValue(2);
     } else if (window.location.pathname === "/about" && value !== 3) {
       setValue(3);
-    } else if (window.location.pathname === "/public_api" && value !== 4) {
+    } else if (window.location.pathname === "/contact" && value !== 4) {
       setValue(4);
+    } else if (window.location.pathname === "/public_api" && value !== 5) {
+      setValue(5);
     }
-    // eslint-disable-next-line
-  }, []);
+  }, [value]);
 
   const handleChange = (e, value) => {
     setValue(value);
@@ -95,19 +96,25 @@ const Header = () => {
                 className={classes.tab}
                 label="Data"
                 component={Link}
-                to="/datasets"
+                to="/data"
               />
               <Tab
                 className={classes.tab}
                 label="News"
                 component={Link}
-                to="/newsfeed"
+                to="/news"
               />
               <Tab
                 className={classes.tab}
                 label="About"
                 component={Link}
                 to="/about"
+              />
+              <Tab
+                className={classes.tab}
+                label="Contact"
+                component={Link}
+                to="/contact"
               />
             </Tabs>
             <Button
@@ -116,6 +123,7 @@ const Header = () => {
               className={classes.button}
               component={Link}
               to="/public_api"
+              onClick={() => setValue(5)}
             >
               Public API
             </Button>
