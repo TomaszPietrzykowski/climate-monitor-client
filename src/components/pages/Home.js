@@ -3,6 +3,8 @@ import React, { Fragment } from "react";
 import Hero from "../home/Hero";
 import Slogan from "../home/Slogan";
 import LatestReadings from "../home/LatestReadings";
+import Description from "../home/Description";
+import Separator from "../ui/Separator";
 
 const Home = () => {
   return (
@@ -10,6 +12,8 @@ const Home = () => {
       <Slogan />
       <Hero />
       <LatestReadings />
+      <Separator />
+      <Description />
       <br />
       <br />
       <br />

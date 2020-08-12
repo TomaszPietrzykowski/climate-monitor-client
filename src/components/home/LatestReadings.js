@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
+    marginBottom: "4rem",
   },
   latestContainer: {
     display: "flex",

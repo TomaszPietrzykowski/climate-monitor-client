@@ -8,7 +8,7 @@ import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
-import logo from "../../assests/logo1.png";
+import logo from "../../assests/logotype.svg";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
   },
   logo: {
-    height: "1.2rem",
+    height: "4rem",
   },
   tabContainer: {
     marginLeft: "auto",
