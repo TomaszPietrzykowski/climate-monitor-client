@@ -18,8 +18,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontFamily: "Poppins, sans",
     fontSize: "6rem",
+    fontWeight: 500,
     color: "white",
-    textShadow: "0px 0px 8px rgba(0, 0, 0, 1)",
+    textShadow: "0px 0px 15px rgba(0, 0, 0, 1)",
   },
   subtitle: {
     fontFamily: "Poppins, sans",

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sloganText: {
     fontFamily: "Poppins, sans",
-    fontSize: "1.6rem",
+    fontSize: "2rem",
     color: "rgba(0, 0, 0, 0.5)",
   },
 }));
