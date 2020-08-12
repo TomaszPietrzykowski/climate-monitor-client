@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 import LatestCard from "./LatestCard";
+import LatestPrimaryCard from "./LatestPrimaryCard";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+  },
   latestContainer: {
     display: "flex",
     justifyContent: "space-around",
-    marginTop: "2rem",
+    marginTop: "4rem",
   },
 }));
 
 const cardData = [
-  { html1: "Latest atmospheric", html2: "Carbon Dioxide (CO2)" },
-  { html1: "Corresponding reading", html2: "1 year ago" },
-  { html1: "Corresponding reading", html2: "5 years ago" },
-  { html1: "Corresponding reading", html2: "10 years ago" },
+  { html: "1 year ago (ppm)" },
+  { html: "5 years ago (ppm)" },
+  { html: "10 years ago (ppm)" },
 ];
 
 const LatestReadings = () => {
@@ -43,19 +47,23 @@ const LatestReadings = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.latestContainer}>
+    <div className={classes.container}>
       {loading || !latest ? (
         <p>loading</p>
       ) : (
-        cardData.map((data, i) => (
-          <LatestCard
-            key={i}
-            latest={latest}
-            label1={data.html1}
-            label2={data.html2}
-            index={i}
-          />
-        ))
+        <Fragment>
+          <LatestPrimaryCard latest={latest} />
+          <div className={classes.latestContainer}>
+            {cardData.map((data, i) => (
+              <LatestCard
+                key={i}
+                latest={latest}
+                labelText={data.html}
+                index={i}
+              />
+            ))}
+          </div>
+        </Fragment>
       )}
     </div>
   );

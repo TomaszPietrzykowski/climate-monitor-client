@@ -2,43 +2,42 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,
     textAlign: "center",
+    fontFamily: "Poppins",
+    color: theme.palette.text.secondary,
+    boxShadow: "none",
   },
   label: {
     fontSize: "0.9rem",
   },
   value: {
-    fontSize: "1.5rem",
+    fontSize: "1.8rem",
+    fontWeight: 500,
     marginTop: "0.8rem",
     marginBottom: "0.8rem",
   },
-});
+  date: {
+    fontSize: "0.8rem",
+  },
+}));
 
-const LatestCard = ({ latest, label1, label2, index }) => {
+const LatestCard = ({ latest, labelText, index }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography
-          className={classes.label}
-          variant="body2"
-          component="p"
-          color="textSecondary"
-        >
-          {label1} <br /> {label2}
-        </Typography>
-        <Typography className={classes.value}>
-          {latest.values[index]} ppm
-        </Typography>
-        <Typography variant="body2" component="p" color="textSecondary">
-          reading: {latest.labels[index]}
-        </Typography>
+        <div className={classes.label}>
+          Corresponding reading <br /> {labelText}
+        </div>
+        <div className={classes.value}>{latest.values[index + 1]}</div>
+        <div className={classes.date}>
+          Measurement date: {latest.labels[index + 1]}
+        </div>
       </CardContent>
     </Card>
   );

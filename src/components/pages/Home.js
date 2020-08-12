@@ -10,6 +10,15 @@ const Home = () => {
       <Slogan />
       <Hero />
       <LatestReadings />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </Fragment>
   );
 };
