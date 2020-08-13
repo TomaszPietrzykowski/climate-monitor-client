@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import { Spring } from "react-spring/renderprops";
 
 const useStyles = makeStyles((theme) => ({
   flexContainer: {
@@ -27,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
   },
   value: {
+    display: "flex",
+    alignItems: "flex-end",
     fontSize: "3rem",
     fontWeight: 500,
     marginTop: "1.3rem",
@@ -59,7 +62,14 @@ const LatestPrimaryCard = ({ latest }) => {
         <CardContent>
           <div className={classes.label}>Current atmospheric CO2:</div>
           <div className={classes.value}>
-            {latest.values[0]} <span className={classes.ppm}>ppm</span>
+            <Spring from={{ number: 0 }} to={{ number: latest.values[0] }}>
+              {(props) => (
+                <div style={props}>
+                  {props.number.toFixed(2)}{" "}
+                  <span className={classes.ppm}>ppm</span>
+                </div>
+              )}
+            </Spring>
           </div>
           <div className={classes.date}>
             measurement date: {latest.labels[0]}
