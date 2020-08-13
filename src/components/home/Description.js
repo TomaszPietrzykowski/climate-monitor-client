@@ -54,9 +54,9 @@ const Description = () => {
         <div className={classes.title}>Accessible</div>
         <div className={classes.text}>
           Data gathered over multiple sources, delivered to you in one place,
-          served as an easy to read chart, tabular or json data. Analize scope
-          of your choice and compare factors. Use our Public API if you are up
-          to something...
+          served as an easy to read chart, as well as tabular or json data.
+          Analize scope of your choice and compare factors. Use our Public API
+          if you are up to something...
         </div>
       </div>
     </div>

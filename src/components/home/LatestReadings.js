@@ -34,7 +34,7 @@ const LatestReadings = () => {
     try {
       setLoading(true);
       const res = await fetch(
-        "http://localhost:5000/api/v1/chartdata/latest_co2"
+        "https://api.climatemonitor.info/api/v1/chartdata/latest_co2"
       );
       const data = await res.json();
       setLatest(data.data);
