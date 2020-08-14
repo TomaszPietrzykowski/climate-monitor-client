@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   value: {
     display: "flex",
     alignItems: "flex-end",
+    justifyContent: "center",
     fontSize: "3rem",
     fontWeight: 500,
     marginTop: "1.3rem",
@@ -37,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
   },
   valueSecondary: {
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "center",
     fontSize: "1.5rem",
     fontWeight: 500,
     marginTop: "0.5rem",
@@ -46,6 +50,13 @@ const useStyles = makeStyles((theme) => ({
   ppm: {
     fontSize: "1rem",
     fontWeight: 300,
+    paddingBottom: "0.65rem",
+    marginLeft: "1rem",
+  },
+  ppmSecondary: {
+    fontSize: "0.9rem",
+    fontWeight: 300,
+    marginLeft: "0.6rem",
   },
   date: {
     fontSize: "1rem",
@@ -62,11 +73,25 @@ const LatestPrimaryCard = ({ latest }) => {
         <CardContent>
           <div className={classes.label}>Current atmospheric CO2:</div>
           <div className={classes.value}>
-            <Spring from={{ number: 0 }} to={{ number: latest.values[0] }}>
+            <Spring
+              from={{ number: 0 }}
+              to={{ number: latest.values[0] }}
+              config={{ tension: 300, friction: 100 }}
+            >
+              {(props) => <div style={props}>{props.number.toFixed(2)} </div>}
+            </Spring>
+            <Spring
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+              config={{
+                delay: 3000,
+                duration: 1200,
+              }}
+            >
               {(props) => (
-                <div style={props}>
-                  {props.number.toFixed(2)}{" "}
-                  <span className={classes.ppm}>ppm</span>
+                <div style={props} className={classes.ppm}>
+                  {" "}
+                  ppm
                 </div>
               )}
             </Spring>
@@ -80,12 +105,53 @@ const LatestPrimaryCard = ({ latest }) => {
         <CardContent>
           <div className={classes.labelSecondary}>Trend for the date:</div>
           <div className={classes.valueSecondary}>
-            {latest.trend[0]} <span className={classes.ppm}>ppm</span>
+            <Spring
+              from={{ number: 0 }}
+              to={{ number: latest.trend[0] }}
+              config={{ tension: 200, friction: 100 }}
+            >
+              {(props) => <div style={props}>{props.number.toFixed(2)} </div>}
+            </Spring>
+            <Spring
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+              config={{
+                delay: 3500,
+                duration: 1200,
+              }}
+            >
+              {(props) => (
+                <div style={props} className={classes.ppmSecondary}>
+                  {" "}
+                  ppm
+                </div>
+              )}
+            </Spring>
           </div>
           <div className={classes.labelSecondary}>Increase since 1800:</div>
           <div className={classes.valueSecondary}>
-            {parseFloat(latest.values[0] - 318).toFixed(2)}{" "}
-            <span className={classes.ppm}>ppm</span>
+            <Spring
+              from={{ number: 0 }}
+              to={{ number: parseFloat(latest.values[0] - 318).toFixed(2) }}
+              config={{ delay: 3500, tension: 450, friction: 100 }}
+            >
+              {(props) => <div style={props}>{props.number.toFixed(2)} </div>}
+            </Spring>
+            <Spring
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+              config={{
+                delay: 5000,
+                duration: 1000,
+              }}
+            >
+              {(props) => (
+                <div style={props} className={classes.ppmSecondary}>
+                  {" "}
+                  ppm
+                </div>
+              )}
+            </Spring>
           </div>
         </CardContent>
       </Card>
