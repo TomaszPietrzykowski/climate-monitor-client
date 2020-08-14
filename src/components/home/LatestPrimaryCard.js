@@ -141,7 +141,7 @@ const LatestPrimaryCard = ({ latest }) => {
               from={{ opacity: 0 }}
               to={{ opacity: 1 }}
               config={{
-                delay: 5000,
+                delay: 4800,
                 duration: 1000,
               }}
             >

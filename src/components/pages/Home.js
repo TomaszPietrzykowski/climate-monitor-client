@@ -5,6 +5,7 @@ import Slogan from "../home/Slogan";
 import LatestReadings from "../home/LatestReadings";
 import Description from "../home/Description";
 import Separator from "../ui/Separator";
+import Amazon from "../home/Amazon";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <LatestReadings />
       <Separator />
       <Description />
+      <Amazon />
       <br />
       <br />
       <br />

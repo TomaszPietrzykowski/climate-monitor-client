@@ -6,6 +6,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
     textAlign: "center",
+    marginTop: "2rem",
+    marginBottom: "5rem",
   },
   tab: {
     display: "flex",
