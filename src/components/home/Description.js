@@ -4,7 +4,9 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    justifyContent: "space-around",
+    maxWidth: 1200,
+    margin: "auto",
+    justifyContent: "space-between",
     textAlign: "center",
     marginTop: "2rem",
     marginBottom: "5rem",
@@ -15,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     fontFamily: "Poppins",
-    padding: "2rem",
+    paddingTop: "2rem",
+    paddingBottom: "2rem",
     margin: "3rem",
     color: theme.palette.text.secondary,
     height: "100%",

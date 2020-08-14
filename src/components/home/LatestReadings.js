@@ -5,7 +5,7 @@ import LatestPrimaryCard from "./LatestPrimaryCard";
 
 const useStyles = makeStyles((theme) => ({
   siteContainer: {
-    maxWidth: 1100,
+    maxWidth: 1200,
     margin: "auto",
   },
   container: {

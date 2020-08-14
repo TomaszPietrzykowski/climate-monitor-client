@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "500px",
   },
   siteContainer: {
-    maxWidth: 1100,
+    maxWidth: 1200,
     margin: "auto",
   },
   flexContainer: {
