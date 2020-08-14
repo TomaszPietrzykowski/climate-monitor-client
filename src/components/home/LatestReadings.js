@@ -4,6 +4,10 @@ import LatestCard from "./LatestCard";
 import LatestPrimaryCard from "./LatestPrimaryCard";
 
 const useStyles = makeStyles((theme) => ({
+  siteContainer: {
+    maxWidth: 1100,
+    margin: "auto",
+  },
   container: {
     display: "flex",
     flexDirection: "column",
@@ -48,24 +52,26 @@ const LatestReadings = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
-      {loading || !latest ? (
-        <p>loading</p>
-      ) : (
-        <Fragment>
-          <LatestPrimaryCard latest={latest} />
-          <div className={classes.latestContainer}>
-            {cardData.map((data, i) => (
-              <LatestCard
-                key={i}
-                latest={latest}
-                labelText={data.html}
-                index={i}
-              />
-            ))}
-          </div>
-        </Fragment>
-      )}
+    <div className={classes.siteContainer}>
+      <div className={classes.container}>
+        {loading || !latest ? (
+          <p>loading</p>
+        ) : (
+          <Fragment>
+            <LatestPrimaryCard latest={latest} />
+            <div className={classes.latestContainer}>
+              {cardData.map((data, i) => (
+                <LatestCard
+                  key={i}
+                  latest={latest}
+                  labelText={data.html}
+                  index={i}
+                />
+              ))}
+            </div>
+          </Fragment>
+        )}
+      </div>
     </div>
   );
 };

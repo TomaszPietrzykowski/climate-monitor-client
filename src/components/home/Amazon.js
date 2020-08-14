@@ -1,31 +1,39 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { Button } from "@material-ui/core";
 
 import amazon from "../../assests/amazon.jpg";
 
 const useStyles = makeStyles((theme) => ({
-  flexContainer: {
-    display: "flex",
-    justifyContent: "space-between",
+  hero: {
     backgroundImage: `url(${amazon})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100%",
+    minHeight: "500px",
+  },
+  siteContainer: {
+    maxWidth: 1100,
+    margin: "auto",
+  },
+  flexContainer: {
+    display: "flex",
+    justifyContent: "space-between",
     minHeight: "500px",
     alignItems: "center",
   },
   tabLeft: {
     display: "flex",
     flexDirection: "column",
-    marginLeft: "4rem",
+    marginLeft: "2rem",
     textAlign: "left",
     alignItems: "flex-start",
   },
   tabRight: {
     display: "flex",
     flexDirection: "column",
-    marginRight: "4rem",
+    marginRight: "2rem",
     textAlign: "right",
     alignItems: "flex-end",
   },
@@ -48,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     color: "white",
     fontFamily: "Poppins, sans",
-    fontSize: "0.9rem",
+    fontSize: "0.95rem",
     border: "2px solid white",
     width: "150px",
     textTransform: "none",
@@ -62,31 +70,45 @@ const Amazon = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.flexContainer}>
-      <div className={classes.tabLeft}>
-        <div className={classes.title}>Climate News</div>
-        <div className={classes.text}>
-          Latest news concerining climate change,
-          <br />
-          actions and challanges we take on
-          <br />
-          in our effort to stabilize climate.
+    <div className={classes.hero}>
+      <div className={classes.siteContainer}>
+        <div className={classes.flexContainer}>
+          <div className={classes.tabLeft}>
+            <div className={classes.title}>Climate News</div>
+            <div className={classes.text}>
+              Latest news on climate change,
+              <br />
+              actions and challanges we take on
+              <br />
+              in our effort to stabilize climate.
+            </div>
+            <Button
+              className={classes.btn}
+              variant="outlined"
+              component={Link}
+              to="/news"
+            >
+              Newsfeed
+            </Button>
+          </div>
+          <div className={classes.tabRight}>
+            <div className={classes.title}>Public API</div>
+            <div className={classes.text}>
+              Your climate data just 3 ms away.
+              <br />
+              Free to use, rich public API <br />
+              with most crutial climate factors.
+            </div>
+            <Button
+              className={classes.btn}
+              variant="outlined"
+              component={Link}
+              to="/public_api"
+            >
+              Documentation
+            </Button>
+          </div>
         </div>
-        <Button className={classes.btn} variant="outlined">
-          Newsfeed
-        </Button>
-      </div>
-      <div className={classes.tabRight}>
-        <div className={classes.title}>Public API</div>
-        <div className={classes.text}>
-          Your climate data just 3 ms away.
-          <br />
-          Free to use, rich public API <br />
-          with most crutial climate factors.
-        </div>
-        <Button className={classes.btn} variant="outlined">
-          Documentation
-        </Button>
       </div>
     </div>
   );
