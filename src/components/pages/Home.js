@@ -7,7 +7,7 @@ import Description from "../home/Description";
 import Separator from "../ui/Separator";
 import Amazon from "../home/Amazon";
 
-const Home = () => {
+const Home = ({ setValue }) => {
   return (
     <Fragment>
       <Slogan />
@@ -15,7 +15,7 @@ const Home = () => {
       <LatestReadings />
       <Separator />
       <Description />
-      <Amazon />
+      <Amazon setValue={setValue} />
       <br />
       <br />
       <br />

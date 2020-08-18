@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Amazon = () => {
+const Amazon = ({ setValue }) => {
   const classes = useStyles();
 
   return (
@@ -87,6 +87,7 @@ const Amazon = () => {
               variant="outlined"
               component={Link}
               to="/news"
+              onClick={() => setValue(2)}
             >
               Newsfeed
             </Button>
@@ -104,6 +105,7 @@ const Amazon = () => {
               variant="outlined"
               component={Link}
               to="/public_api"
+              onClick={() => setValue(5)}
             >
               Documentation
             </Button>

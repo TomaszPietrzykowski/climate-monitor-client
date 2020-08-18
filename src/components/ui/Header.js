@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
@@ -24,6 +24,9 @@ function ElevationScroll(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: "white",
+  },
   toolbarMargin: {
     ...theme.mixins.toolbar,
   },
@@ -44,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ value, setValue }) => {
   const classes = useStyles();
-  const [value, setValue] = useState(0);
+  // const [value, setValue] = useState(0);
 
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
@@ -62,6 +65,7 @@ const Header = () => {
     } else if (window.location.pathname === "/public_api" && value !== 5) {
       setValue(5);
     }
+    // eslint-disable-next-line
   }, [value]);
 
   const handleChange = (e, value) => {
@@ -71,7 +75,7 @@ const Header = () => {
   return (
     <Fragment>
       <ElevationScroll>
-        <AppBar color="secondary">
+        <AppBar className={classes.appBar}>
           <Toolbar>
             <Button component={Link} to="/">
               <img
