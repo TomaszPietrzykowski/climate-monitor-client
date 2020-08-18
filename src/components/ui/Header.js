@@ -7,6 +7,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
 
 import logo from "../../assests/logotype.svg";
 
@@ -29,9 +31,19 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarMargin: {
     ...theme.mixins.toolbar,
+    marginBottom: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: 0,
+    },
   },
   logo: {
     height: "4rem",
+    [theme.breakpoints.down("sm")]: {
+      height: "3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "2rem",
+    },
   },
   tabContainer: {
     marginLeft: "auto",
@@ -44,12 +56,14 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.tab,
     borderRadius: "50px",
     color: "white",
+    paddingBottom: "0.2rem",
   },
 }));
 
 const Header = ({ value, setValue }) => {
   const classes = useStyles();
-  // const [value, setValue] = useState(0);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
@@ -72,65 +86,56 @@ const Header = ({ value, setValue }) => {
     setValue(value);
   };
 
+  const tabs = (
+    <Fragment>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        className={classes.tabContainer}
+        indicatorColor="primary"
+      >
+        <Tab className={classes.tab} label="Home" component={Link} to="/" />
+        <Tab className={classes.tab} label="Data" component={Link} to="/data" />
+        <Tab className={classes.tab} label="News" component={Link} to="/news" />
+        <Tab
+          className={classes.tab}
+          label="About"
+          component={Link}
+          to="/about"
+        />
+        <Tab
+          className={classes.tab}
+          label="Contact"
+          component={Link}
+          to="/contact"
+        />
+      </Tabs>
+      <Button
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        component={Link}
+        to="/public_api"
+        onClick={() => setValue(5)}
+      >
+        Public API
+      </Button>
+    </Fragment>
+  );
+
   return (
     <Fragment>
       <ElevationScroll>
         <AppBar className={classes.appBar}>
-          <Toolbar>
-            <Button component={Link} to="/">
+          <Toolbar disableGutters>
+            <Button component={Link} to="/" onClick={() => setValue(0)}>
               <img
                 src={logo}
                 alt="climate monitor logo"
                 className={classes.logo}
               />
             </Button>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              className={classes.tabContainer}
-              indicatorColor="primary"
-            >
-              <Tab
-                className={classes.tab}
-                label="Home"
-                component={Link}
-                to="/"
-              />
-              <Tab
-                className={classes.tab}
-                label="Data"
-                component={Link}
-                to="/data"
-              />
-              <Tab
-                className={classes.tab}
-                label="News"
-                component={Link}
-                to="/news"
-              />
-              <Tab
-                className={classes.tab}
-                label="About"
-                component={Link}
-                to="/about"
-              />
-              <Tab
-                className={classes.tab}
-                label="Contact"
-                component={Link}
-                to="/contact"
-              />
-            </Tabs>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              component={Link}
-              to="/public_api"
-              onClick={() => setValue(5)}
-            >
-              Public API
-            </Button>
+            {matches ? null : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>

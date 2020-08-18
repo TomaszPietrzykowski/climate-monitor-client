@@ -132,7 +132,7 @@ const LatestPrimaryCard = ({ latest }) => {
           <div className={classes.valueSecondary}>
             <Spring
               from={{ number: 0 }}
-              to={{ number: parseFloat(latest.values[0] - 318).toFixed(2) }}
+              to={{ number: parseFloat(latest.values[0] - 292.9).toFixed(2) }}
               config={{ delay: 3500, tension: 450, friction: 100 }}
             >
               {(props) => <div style={props}>{props.number.toFixed(2)} </div>}

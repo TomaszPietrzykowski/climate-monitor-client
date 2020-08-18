@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const cardData = [
-  { html: "1 year ago (ppm)" },
-  { html: "5 years ago (ppm)" },
-  { html: "10 years ago (ppm)" },
+  { html: "1 year ago" },
+  { html: "5 years ago" },
+  { html: "10 years ago" },
 ];
 
 const LatestReadings = () => {
