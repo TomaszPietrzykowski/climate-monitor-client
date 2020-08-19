@@ -1,7 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import LatestCard from "./LatestCard";
 import LatestPrimaryCard from "./LatestPrimaryCard";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   siteContainer: {
@@ -18,6 +20,29 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     marginTop: "4rem",
   },
+  btnContainer: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "6rem",
+  },
+  btn: {
+    ...theme.typography.tab,
+    borderRadius: "50px",
+    fontFamily: "Poppins, sans",
+    fontSize: "0.95rem",
+    width: "150px",
+    textTransform: "none",
+    border: "3px solid",
+    marginTop: "1.5rem",
+    marginLeft: "0rem",
+    marginRight: "0rem",
+    "&:hover": {
+      border: "3px solid",
+    },
+  },
 }));
 
 const cardData = [
@@ -26,7 +51,7 @@ const cardData = [
   { html: "10 years ago" },
 ];
 
-const LatestReadings = () => {
+const LatestReadings = ({ setValue }) => {
   const [loading, setLoading] = useState(false);
   const [latest, setLatest] = useState(null);
 
@@ -68,6 +93,18 @@ const LatestReadings = () => {
                   index={i}
                 />
               ))}
+            </div>
+            <div className={classes.btnContainer}>
+              <Button
+                variant="outlined"
+                color="primary"
+                className={classes.btn}
+                component={Link}
+                to="/data"
+                onClick={() => setValue(1)}
+              >
+                More Data
+              </Button>
             </div>
           </Fragment>
         )}
