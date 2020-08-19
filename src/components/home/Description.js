@@ -39,17 +39,21 @@ const Description = () => {
   const classes = useStyles();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    trigger: 1,
+    trigger: 0.5,
   });
 
   return (
     <div className={classes.container}>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 50 }}
-          to={{ opacity: inView ? 1 : 0, marginTop: inView ? 0 : 50 }}
+          from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+          to={{
+            opacity: inView ? 1 : 0,
+            marginTop: inView ? 0 : 50,
+            marginBottom: inView ? 0 : -50,
+          }}
           config={config.gentle}
-          delay={500}
+          delay={200}
         >
           {(props) => (
             <animated.div style={props} ref={ref}>
@@ -67,10 +71,14 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 50 }}
-          to={{ opacity: inView ? 1 : 0, marginTop: inView ? 0 : 50 }}
+          from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+          to={{
+            opacity: inView ? 1 : 0,
+            marginTop: inView ? 0 : 50,
+            marginBottom: inView ? 0 : -50,
+          }}
           config={config.gentle}
-          delay={500}
+          delay={200}
         >
           {(props) => (
             <animated.div style={props} ref={ref}>
@@ -88,10 +96,14 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 50 }}
-          to={{ opacity: inView ? 1 : 0, marginTop: inView ? 0 : 50 }}
+          from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+          to={{
+            opacity: inView ? 1 : 0,
+            marginTop: inView ? 0 : 50,
+            marginBottom: inView ? 0 : -50,
+          }}
           config={config.gentle}
-          delay={500}
+          delay={200}
         >
           {(props) => (
             <animated.div style={props} ref={ref}>
