@@ -127,7 +127,7 @@ const Header = ({ value, setValue }) => {
     <Fragment>
       <ElevationScroll>
         <AppBar className={classes.appBar}>
-          <Toolbar disableGutters>
+          <Toolbar>
             <Button component={Link} to="/" onClick={() => setValue(0)}>
               <img
                 src={logo}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Spring, animated, config } from "react-spring/renderprops";
 
 import { makeStyles } from "@material-ui/styles";
 
@@ -21,9 +22,18 @@ const Slogan = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.sloganContainer}>
-      <div className={classes.sloganText}>It starts with awareness</div>
-    </div>
+    <Spring
+      from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+      to={{ opacity: 1, marginTop: 0, marginBottom: 0 }}
+      delay={300}
+      config={config.gentle}
+    >
+      {(props) => (
+        <animated.div style={props} className={classes.sloganContainer}>
+          <div className={classes.sloganText}>It starts with awareness</div>
+        </animated.div>
+      )}
+    </Spring>
   );
 };
 

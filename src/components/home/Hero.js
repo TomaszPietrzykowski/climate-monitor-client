@@ -1,10 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
+import { Spring, animated, config } from "react-spring/renderprops";
 
 import hero from "../../assests/hero.jpg";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
+    backgroundColor: "rgba(67, 78, 96, 1)",
     backgroundImage: `url(${hero})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -34,10 +36,19 @@ const Hero = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.hero}>
-      <div className={classes.subtitle}>Latest and historical</div>
-      <div className={classes.title}> climate data </div>
-    </div>
+    <Spring
+      from={{ opacity: 0 }}
+      to={{ opacity: 1 }}
+      delay={1000}
+      config={config.gentle}
+    >
+      {(props) => (
+        <animated.div style={props} className={classes.hero}>
+          <div className={classes.subtitle}>Latest and historical</div>
+          <div className={classes.title}> climate data </div>
+        </animated.div>
+      )}
+    </Spring>
   );
 };
 

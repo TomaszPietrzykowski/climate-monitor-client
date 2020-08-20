@@ -39,7 +39,7 @@ const Description = () => {
   const classes = useStyles();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    trigger: 0.5,
+    trigger: 1,
   });
 
   return (
@@ -82,7 +82,7 @@ const Description = () => {
         >
           {(props) => (
             <animated.div style={props} ref={ref}>
-              <div className={classes.title}>Comprehensivee</div>
+              <div className={classes.title}>Comprehensive</div>
               <div className={classes.text}>
                 Well over 50 different datasets, collection of data on the most
                 important climate factors: levels of multiple atmospheric

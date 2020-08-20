@@ -72,7 +72,7 @@ const Amazon = ({ setValue }) => {
   const classes = useStyles();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    trigger: 0.5,
+    trigger: 1,
   });
 
   return (
