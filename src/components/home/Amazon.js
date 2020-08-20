@@ -128,7 +128,7 @@ const Amazon = ({ setValue }) => {
                 <animated.div style={props} ref={ref}>
                   <div className={classes.title}>Public API</div>
                   <div className={classes.text}>
-                    Your climate data just 3 ms away.
+                    Your climate data just milliseconds away.
                     <br />
                     Free to use, rich public API <br />
                     with most crutial climate factors.
