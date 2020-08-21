@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/ui/ScrollToTop";
 import Header from "./components/ui/Header";
+import Footer from "./components/ui/Footer";
 import Home from "./components/pages/Home";
 import News from "./components/news/News";
 
@@ -36,6 +37,7 @@ function App() {
               component={() => <div>Public API</div>}
             />
           </Switch>
+          <Footer />
         </ScrollToTop>
       </Router>
     </ThemeProvider>
