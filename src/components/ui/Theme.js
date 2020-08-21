@@ -28,7 +28,8 @@ export default createMuiTheme({
   },
   breakpoints: {
     values: {
-      xs: 0,
+      xxs: 0,
+      xs: 340,
       sm: 600,
       md: 960,
       lg: 1280,

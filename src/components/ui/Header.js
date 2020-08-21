@@ -34,6 +34,7 @@ function ElevationScroll(props) {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "white",
+    zIndex: theme.zIndex.modal + 1,
   },
   toolbarMargin: {
     ...theme.mixins.toolbar,
@@ -104,13 +105,13 @@ const useStyles = makeStyles((theme) => ({
   drawerBackground: {
     paddingRight: "3rem",
     "&:hover": {
-      backgroundColor: theme.palette.action.selected,
+      backgroundColor: theme.palette.action.disabledBackground,
     },
   },
   backgroundAPI: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.light,
     "&:hover": {
-      backgroundColor: theme.palette.primary.dark,
+      backgroundColor: theme.palette.primary.main,
     },
   },
   drawerItemAPI: {
@@ -119,7 +120,25 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "transparent",
     color: "white",
   },
+  selectedText: {
+    ...theme.typography.tab,
+    color: theme.palette.primary.main,
+    letterSpacing: 1.3,
+    "&:hover": {
+      color: theme.palette.primary.light,
+    },
+    opacity: 0.5,
+  },
 }));
+
+const routes = [
+  { name: "Home", link: "/" },
+  { name: "Data", link: "/data" },
+  { name: "News", link: "/news" },
+  { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" },
+  { name: "Public API", link: "/public_api" },
+];
 
 const Header = ({ value, setValue }) => {
   const classes = useStyles();
@@ -130,21 +149,17 @@ const Header = ({ value, setValue }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
-    if (window.location.pathname === "/" && value !== 0) {
-      setValue(0);
-    } else if (window.location.pathname === "/data" && value !== 1) {
-      setValue(1);
-    } else if (window.location.pathname === "/news" && value !== 2) {
-      setValue(2);
-    } else if (window.location.pathname === "/about" && value !== 3) {
-      setValue(3);
-    } else if (window.location.pathname === "/contact" && value !== 4) {
-      setValue(4);
-    } else if (window.location.pathname === "/public_api" && value !== 5) {
-      setValue(5);
-    }
+    routes.forEach((route, i) => {
+      switch (window.location.pathname) {
+        case `${route.link}`:
+          if (value !== i) setValue(i);
+          break;
+        default:
+          break;
+      }
+    });
     // eslint-disable-next-line
-  }, [value]);
+  }, [value, routes]);
 
   const handleChange = (e, value) => {
     setValue(value);
@@ -158,21 +173,18 @@ const Header = ({ value, setValue }) => {
         className={classes.tabContainer}
         indicatorColor="primary"
       >
-        <Tab className={classes.tab} label="Home" component={Link} to="/" />
-        <Tab className={classes.tab} label="Data" component={Link} to="/data" />
-        <Tab className={classes.tab} label="News" component={Link} to="/news" />
-        <Tab
-          className={classes.tab}
-          label="About"
-          component={Link}
-          to="/about"
-        />
-        <Tab
-          className={classes.tab}
-          label="Contact"
-          component={Link}
-          to="/contact"
-        />
+        {routes.map(
+          (route, i) =>
+            i < routes.length - 1 && (
+              <Tab
+                key={`${route.link}${i}`}
+                className={classes.tab}
+                label={route.name}
+                component={Link}
+                to={route.link}
+              />
+            )
+        )}
       </Tabs>
       <Button
         variant="contained"
@@ -197,108 +209,41 @@ const Header = ({ value, setValue }) => {
         onOpen={() => setOpenDrawer(true)}
         classes={{ paper: classes.drawer }}
       >
+        <div className={classes.toolbarMargin} />
         <List disablePadding>
-          <ListItem
-            disableRipple
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(0);
-            }}
-            divider
-            button
-            component={Link}
-            to="/"
-            className={classes.drawerBackground}
-            selected={value === 0 ? true : false}
-          >
-            <ListItemText disableTypography className={classes.drawerItem}>
-              Home
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            disableRipple
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(1);
-            }}
-            divider
-            button
-            component={Link}
-            to="/data"
-            className={classes.drawerBackground}
-            selected={value === 1 ? true : false}
-          >
-            <ListItemText disableTypography className={classes.drawerItem}>
-              Data
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            disableRipple
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(2);
-            }}
-            divider
-            button
-            component={Link}
-            to="/news"
-            className={classes.drawerBackground}
-            selected={value === 2 ? true : false}
-          >
-            <ListItemText disableTypography className={classes.drawerItem}>
-              News
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            disableRipple
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(3);
-            }}
-            divider
-            button
-            component={Link}
-            to="/about"
-            className={classes.drawerBackground}
-            selected={value === 3 ? true : false}
-          >
-            <ListItemText disableTypography className={classes.drawerItem}>
-              About
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            disableRipple
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(4);
-            }}
-            divider
-            button
-            component={Link}
-            to="/contact"
-            className={classes.drawerBackground}
-            selected={value === 4 ? true : false}
-          >
-            <ListItemText disableTypography className={classes.drawerItem}>
-              Contact
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            disableRipple
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(5);
-            }}
-            divider
-            button
-            component={Link}
-            to="/public_api"
-            className={classes.backgroundAPI}
-          >
-            <ListItemText disableTypography className={classes.drawerItemAPI}>
-              Public API
-            </ListItemText>
-          </ListItem>
+          {routes.map((route, i) => (
+            <ListItem
+              key={`${route.link}`}
+              disableRipple
+              onClick={() => {
+                setOpenDrawer(false);
+                setValue(i);
+              }}
+              divider
+              button
+              component={Link}
+              to={route.link}
+              className={
+                i === routes.length - 1
+                  ? classes.backgroundAPI
+                  : classes.drawerBackground
+              }
+              selected={value === i && value < routes.length - 1 ? true : false}
+            >
+              <ListItemText
+                disableTypography
+                className={
+                  i === routes.length - 1
+                    ? classes.drawerItemAPI
+                    : value === i
+                    ? classes.selectedText
+                    : classes.drawerItem
+                }
+              >
+                {route.name}
+              </ListItemText>
+            </ListItem>
+          ))}
         </List>
       </SwipeableDrawer>
       <IconButton
