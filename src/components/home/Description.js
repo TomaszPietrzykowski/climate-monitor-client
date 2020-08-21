@@ -46,11 +46,11 @@ const Description = () => {
     <div className={classes.container}>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
             opacity: inView ? 1 : 0,
-            marginTop: inView ? 0 : 50,
-            marginBottom: inView ? 0 : -50,
+            marginTop: inView ? 0 : 30,
+            marginBottom: inView ? 0 : -30,
           }}
           config={config.gentle}
           delay={200}
@@ -62,8 +62,8 @@ const Description = () => {
                 Climate Monitor database is being updated with recently
                 published data of multiple origins, mainly NOAA and NASA public
                 data servers. Datasets update runs in relation to the data
-                scope. Narrow scope data, like daily readings and weekly mediana
-                are not more then hours old.
+                scope. Narrow scope data, like daily readings are not more then
+                hours old.
               </div>
             </animated.div>
           )}
@@ -71,11 +71,11 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
             opacity: inView ? 1 : 0,
-            marginTop: inView ? 0 : 50,
-            marginBottom: inView ? 0 : -50,
+            marginTop: inView ? 0 : 30,
+            marginBottom: inView ? 0 : -30,
           }}
           config={config.gentle}
           delay={200}
@@ -96,11 +96,11 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
             opacity: inView ? 1 : 0,
-            marginTop: inView ? 0 : 50,
-            marginBottom: inView ? 0 : -50,
+            marginTop: inView ? 0 : 30,
+            marginBottom: inView ? 0 : -30,
           }}
           config={config.gentle}
           delay={200}

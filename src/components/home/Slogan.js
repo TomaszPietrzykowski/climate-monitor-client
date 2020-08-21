@@ -23,10 +23,10 @@ const Slogan = () => {
 
   return (
     <Spring
-      from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
-      to={{ opacity: 1, marginTop: 0, marginBottom: 0 }}
+      from={{ opacity: 0 }}
+      to={{ opacity: 1 }}
       delay={300}
-      config={config.gentle}
+      config={config.molasses}
     >
       {(props) => (
         <animated.div style={props} className={classes.sloganContainer}>

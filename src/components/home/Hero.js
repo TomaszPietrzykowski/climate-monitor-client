@@ -40,7 +40,7 @@ const Hero = () => {
       from={{ opacity: 0 }}
       to={{ opacity: 1 }}
       delay={1000}
-      config={config.slow}
+      config={config.molasses}
     >
       {(props) => (
         <animated.div style={props} className={classes.hero}>

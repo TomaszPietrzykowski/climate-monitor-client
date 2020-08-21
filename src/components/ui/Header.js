@@ -128,7 +128,12 @@ const Header = ({ value, setValue }) => {
       <ElevationScroll>
         <AppBar className={classes.appBar}>
           <Toolbar>
-            <Button component={Link} to="/" onClick={() => setValue(0)}>
+            <Button
+              disableRipple
+              component={Link}
+              to="/"
+              onClick={() => setValue(0)}
+            >
               <img
                 src={logo}
                 alt="climate monitor logo"
