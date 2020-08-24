@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   sloganContainer: {
     margin: "auto",
     marginTop: "6rem",
+    marginBottom: "10rem",
     maxWidth: 1200,
     display: "flex",
     flexDirection: "column",
