@@ -12,7 +12,7 @@ const Home = ({ setValue }) => {
   return (
     <Fragment>
       <Slogan />
-      <Hero />
+      <Hero setValue={setValue} />
       <LatestReadings setValue={setValue} />
       <Separator />
       <Description />

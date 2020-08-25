@@ -14,7 +14,10 @@ const useStyles = makeStyles((theme) => ({
   sloganText: {
     fontFamily: "Poppins, sans",
     fontSize: "2rem",
-    color: "rgba(0, 0, 0, 0.5)",
+    color: theme.palette.text.secondary,
+  },
+  strong: {
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -30,7 +33,10 @@ const Slogan = () => {
     >
       {(props) => (
         <animated.div style={props} className={classes.sloganContainer}>
-          <div className={classes.sloganText}>It starts with awareness</div>
+          <div className={classes.sloganText}>
+            Latest and historical{" "}
+            <span className={classes.strong}>climate data</span>
+          </div>
         </animated.div>
       )}
     </Spring>

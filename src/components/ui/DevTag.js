@@ -28,7 +28,7 @@ const DevTag = () => {
     <div className={classes.container}>
       <a
         className={classes.tag}
-        href="https://tomaszpietrzykowski.com"
+        href="https://github.com/TomaszPietrzykowski"
         rel="noopener noreferrer"
         target="_blank"
       >
