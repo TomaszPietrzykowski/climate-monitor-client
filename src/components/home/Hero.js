@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Button } from "@material-ui/core";
 import { Spring, animated, config } from "react-spring/renderprops";
-import { Link } from "react-router-dom";
 
 import hero from "../../assests/hero.jpg";
 
@@ -18,6 +16,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    [theme.breakpoints.down("md")]: {
+      minHeight: "300px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      minHeight: "250px",
+    },
   },
   filter: {
     width: "100%",
@@ -27,36 +31,45 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     background:
-      "linear-gradient(to right, rgba(0,0,0,0) , rgba(0,0,0,0.5), rgba(0,0,0,0.65), rgba(0,0,0,0.5), rgba(0,0,0,0))",
+      "linear-gradient(to right, rgba(0,0,0,0) , rgba(0,0,0,0.6), rgba(0,0,0,0.7), rgba(0,0,0,0.6), rgba(0,0,0,0))",
+    [theme.breakpoints.down("md")]: {
+      minHeight: "300px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      minHeight: "250px",
+      background: "rgba(0,0,0,0.5)",
+    },
   },
   title: {
     fontFamily: "Poppins, sans",
-    fontSize: "5rem",
+    fontSize: "4rem",
     fontWeight: 500,
     color: "white",
+    marginBottom: "1rem",
     textShadow: "0px 0px 1px rgba(0, 0, 0, 1)",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "3.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.6rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2rem",
+    },
   },
   subtitle: {
     fontFamily: "Poppins, sans",
-    fontSize: "2rem",
+    fontSize: "1.8rem",
     color: "white",
     textShadow: "0px 0px 1px rgba(0, 0, 0, 1)",
-  },
-  btn: {
-    ...theme.typography.tab,
-    borderRadius: "50px",
-    color: "white",
-
-    fontFamily: "Poppins, sans",
-    fontSize: "1rem",
-    border: "2px solid white",
-    width: "150px",
-    textTransform: "none",
-    marginTop: "2rem",
-    marginLeft: "0rem",
-    marginRight: "0rem",
-    "&:hover": {
-      backgroundColor: theme.palette.primary.dark,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
     },
   },
   blue: {
@@ -72,24 +85,15 @@ const Hero = ({ setValue }) => {
       from={{ opacity: 0 }}
       to={{ opacity: 1 }}
       delay={1000}
-      config={config.molasses}
+      config={{ mass: 100, tension: 280, friction: 120 }}
     >
       {(props) => (
         <animated.div style={props} className={classes.hero}>
           <div className={classes.filter}>
             <div className={classes.title}>
-              <span className={classes.blue}>C</span>limate
+              <span className={classes.blue}>c</span>limate monitor
             </div>
-            <div className={classes.subtitle}>in charts and json</div>
-            <Button
-              className={classes.btn}
-              variant="outlined"
-              component={Link}
-              to="/news"
-              onClick={() => setValue(1)}
-            >
-              Browse data
-            </Button>
+            <div className={classes.subtitle}>json data on climate change</div>
           </div>
         </animated.div>
       )}

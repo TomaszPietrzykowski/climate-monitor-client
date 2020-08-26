@@ -8,7 +8,10 @@ const useStyles = makeStyles((theme) => ({
   flexContainer: {
     display: "flex",
     justifyContent: "space-around",
-    alignItems: "flex-emd",
+    alignItems: "flex-end",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
+    },
   },
   root: {
     minWidth: 275,
@@ -18,14 +21,36 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Poppins",
     color: theme.palette.text.secondary,
     boxShadow: "none",
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "auto",
+      marginTop: "2rem",
+    },
   },
   label: {
     fontSize: "1.3rem",
     fontWeight: 500,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "0.7rem",
+    },
   },
   labelSecondary: {
     fontSize: "1rem",
     fontWeight: 500,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.8rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.7rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "0.6rem",
+    },
   },
   value: {
     display: "flex",
@@ -36,6 +61,15 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1.3rem",
     marginBottom: "1.3rem",
     color: theme.palette.primary.main,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
+    },
   },
   valueSecondary: {
     display: "flex",
@@ -46,21 +80,54 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "0.5rem",
     marginBottom: "1rem",
     color: theme.palette.primary.main,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+    },
   },
   ppm: {
     fontSize: "1rem",
     fontWeight: 300,
     paddingBottom: "0.65rem",
     marginLeft: "1rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.9rem",
+      marginLeft: "0.5rem",
+      paddingBottom: "0.6rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+      paddingBottom: "0.3rem",
+    },
   },
   ppmSecondary: {
     fontSize: "0.9rem",
     fontWeight: 300,
     marginLeft: "0.6rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.65rem",
+      marginLeft: "0.2rem",
+      paddingBottom: "0.2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.5rem",
+      paddingBottom: "0.06rem",
+    },
   },
   date: {
     fontSize: "1rem",
     fontWeight: 500,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.8rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.7rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "0.6rem",
+    },
   },
 }));
 
@@ -96,9 +163,7 @@ const LatestPrimaryCard = ({ latest }) => {
               )}
             </Spring>
           </div>
-          <div className={classes.date}>
-            measurement date: {latest.labels[0]}
-          </div>
+          <div className={classes.date}>Measurement: {latest.labels[0]}</div>
         </CardContent>
       </Card>
       <Card className={classes.root}>

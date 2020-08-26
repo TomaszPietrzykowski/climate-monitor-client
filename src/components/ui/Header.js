@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContainer: {
     padding: 0,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       paddingLeft: "1rem",
     },
   },
@@ -144,7 +144,7 @@ const Header = ({ value, setValue }) => {
   const classes = useStyles();
   const theme = useTheme();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   const [openDrawer, setOpenDrawer] = useState(false);
 

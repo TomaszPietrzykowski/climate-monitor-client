@@ -17,18 +17,18 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     zIndex: 1302,
     position: "relative",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       minHeight: "4rem",
     },
   },
   footerImg: {
-    height: "14rem",
+    height: "13rem",
     verticalAlign: "bottom",
     [theme.breakpoints.down("md")]: {
-      height: "13rem",
+      height: "10rem",
     },
     [theme.breakpoints.down("sm")]: {
-      height: "8rem",
+      height: "6rem",
     },
   },
   mainContainer: {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1.5rem",
   },
   gridItem: {
-    margin: "2rem",
+    margin: "1.5rem",
     [theme.breakpoints.down("md")]: {
       margin: "1rem",
     },
@@ -74,7 +74,7 @@ const Footer = ({ setValue }) => {
   return (
     <Fragment>
       <div className={classes.footer}>
-        <Hidden smDown>
+        <Hidden mdDown>
           <Grid container className={classes.mainContainer} justify="center">
             <Grid item className={classes.gridItem}>
               <Grid container direction="column" spacing={1}>

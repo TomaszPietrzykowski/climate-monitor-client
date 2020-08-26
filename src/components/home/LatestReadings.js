@@ -19,6 +19,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
     marginTop: "4rem",
+    [theme.breakpoints.down("md")]: {
+      marginTop: "2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "1.5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "1rem",
+    },
   },
   btnContainer: {
     width: "100%",
@@ -27,6 +36,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     marginTop: "6rem",
+    [theme.breakpoints.down("md")]: {
+      marginTop: "2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "1.5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "1rem",
+    },
   },
   btn: {
     ...theme.typography.tab,
@@ -41,6 +59,20 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "0rem",
     "&:hover": {
       border: "3px solid",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "130px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+      width: "120px",
+      border: "2px solid",
+      "&:hover": {
+        border: "2px solid",
+      },
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "1rem",
     },
   },
 }));

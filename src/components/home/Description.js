@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     marginTop: "2rem",
     marginBottom: "5rem",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      marginTop: 0,
+    },
   },
   tab: {
     display: "flex",
@@ -24,20 +28,44 @@ const useStyles = makeStyles((theme) => ({
     margin: "3rem",
     color: theme.palette.text.secondary,
     height: "100%",
+    [theme.breakpoints.down("md")]: {
+      margin: "1rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "1rem 3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: "1rem",
+    },
   },
   title: {
     fontSize: "1.6rem",
     fontWeight: "bold",
     marginBottom: "3rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.2rem",
+      marginBottom: "1rem",
+    },
   },
   text: {
     fontSize: "1rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.8rem",
+    },
   },
 }));
 
 const Description = () => {
   const classes = useStyles();
   const [ref, inView] = useInView({
+    triggerOnce: true,
+    trigger: 1,
+  });
+  const [ref1, inView1] = useInView({
+    triggerOnce: true,
+    trigger: 1,
+  });
+  const [ref2, inView2] = useInView({
     triggerOnce: true,
     trigger: 1,
   });
@@ -73,15 +101,15 @@ const Description = () => {
         <Spring
           from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
-            opacity: inView ? 1 : 0,
-            marginTop: inView ? 0 : 30,
-            marginBottom: inView ? 0 : -30,
+            opacity: inView1 ? 1 : 0,
+            marginTop: inView1 ? 0 : 30,
+            marginBottom: inView1 ? 0 : -30,
           }}
           config={config.gentle}
           delay={200}
         >
           {(props) => (
-            <animated.div style={props} ref={ref}>
+            <animated.div style={props} ref={ref1}>
               <div className={classes.title}>Comprehensive</div>
               <div className={classes.text}>
                 Well over 50 different datasets, collection of data on the most
@@ -98,15 +126,15 @@ const Description = () => {
         <Spring
           from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
-            opacity: inView ? 1 : 0,
-            marginTop: inView ? 0 : 30,
-            marginBottom: inView ? 0 : -30,
+            opacity: inView2 ? 1 : 0,
+            marginTop: inView2 ? 0 : 30,
+            marginBottom: inView2 ? 0 : -30,
           }}
           config={config.gentle}
           delay={200}
         >
           {(props) => (
-            <animated.div style={props} ref={ref}>
+            <animated.div style={props} ref={ref2}>
               <div className={classes.title}>Accessible</div>
               <div className={classes.text}>
                 Data collected over multiple sources, delivered to you in one
