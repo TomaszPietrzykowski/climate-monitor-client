@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     width: "100%",
     minHeight: "500px",
+    [theme.breakpoints.down("sm")]: {
+      backgroundPosition: "left",
+    },
   },
   siteContainer: {
     maxWidth: 1200,
@@ -24,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     minHeight: "500px",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      padding: "1rem",
+    },
   },
   tabLeft: {
     display: "flex",
@@ -31,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "2rem",
     textAlign: "left",
     alignItems: "flex-start",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+      marginTop: "6rem",
+      textAlign: "center",
+      alignItems: "flex-end",
+    },
   },
   tabRight: {
     display: "flex",
@@ -38,6 +51,13 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "2rem",
     textAlign: "right",
     alignItems: "flex-end",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 0,
+      marginTop: "6rem",
+      marginBottom: "6rem",
+      textAlign: "center",
+      alignItems: "flex-end",
+    },
   },
   text: {
     fontFamily: "Poppins, sans",
@@ -52,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
     color: "white",
     textShadow: "0px 0px 4px rgba(0, 0, 0, 1)",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.6rem",
+    },
   },
   btn: {
     ...theme.typography.tab,
@@ -65,12 +88,21 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "2rem",
     marginLeft: "0rem",
     marginRight: "0rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "auto",
+      fontSize: "0.8rem",
+      fontWeight: 500,
+    },
   },
 }));
 
 const Amazon = ({ setValue }) => {
   const classes = useStyles();
   const [ref, inView] = useInView({
+    triggerOnce: true,
+    trigger: 1,
+  });
+  const [ref1, inView1] = useInView({
     triggerOnce: true,
     trigger: 1,
   });
@@ -88,7 +120,7 @@ const Amazon = ({ setValue }) => {
                 marginBottom: inView ? 0 : -30,
               }}
               config={config.gentle}
-              delay={300}
+              delay={200}
             >
               {(props) => (
                 <animated.div style={props} ref={ref}>
@@ -117,15 +149,15 @@ const Amazon = ({ setValue }) => {
             <Spring
               from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
               to={{
-                opacity: inView ? 1 : 0,
-                marginTop: inView ? 0 : 30,
-                marginBottom: inView ? 0 : -30,
+                opacity: inView1 ? 1 : 0,
+                marginTop: inView1 ? 0 : 30,
+                marginBottom: inView1 ? 0 : -30,
               }}
               config={config.gentle}
-              delay={300}
+              delay={200}
             >
               {(props) => (
-                <animated.div style={props} ref={ref}>
+                <animated.div style={props} ref={ref1}>
                   <div className={classes.title}>Public API</div>
                   <div className={classes.text}>
                     Your climate data just milliseconds away.

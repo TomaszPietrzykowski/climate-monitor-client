@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Spring, animated, config } from "react-spring/renderprops";
+import { Spring, animated } from "react-spring/renderprops";
 
 import hero from "../../assests/hero.jpg";
 
@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "3.5rem",
     },
     [theme.breakpoints.down("sm")]: {
+      marginBottom: 0,
       fontSize: "2.6rem",
     },
     [theme.breakpoints.down("xs")]: {

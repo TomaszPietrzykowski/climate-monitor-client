@@ -17,12 +17,25 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     padding: "3.5rem",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "4rem",
+      padding: "1rem",
+    },
   },
   sloganText: {
     fontFamily: "Poppins, sans",
     fontSize: "2rem",
     textAlign: "center",
     color: "rgba(0, 0, 0, 0.5)",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.6rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.4rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.2rem",
+    },
   },
   about: {
     maxWidth: "780px",
@@ -33,6 +46,15 @@ const useStyles = makeStyles((theme) => ({
     color: "rgba(0, 0, 0, 0.5)",
     padding: "3rem",
     marginTop: "1.5rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1rem",
+      padding: "1rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      lineHeight: "1rem",
+      fontSize: "0.8rem",
+      marginTop: "1rem",
+    },
   },
   blue: {
     color: theme.palette.primary.main,
@@ -58,24 +80,38 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       border: "3px solid",
     },
+    [theme.breakpoints.down("md")]: {
+      width: "130px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+      width: "120px",
+      border: "2px solid",
+      "&:hover": {
+        border: "2px solid",
+      },
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "1rem",
+    },
   },
 }));
 
 const GetInvolved = ({ setValue }) => {
   const classes = useStyles();
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     trigger: 1,
   });
 
   return (
     <div className={classes.sloganContainer}>
       <Spring
-        from={{ opacity: 0, marginTop: 50, marginBottom: -50 }}
+        from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
         to={{
           opacity: inView ? 1 : 0,
-          marginTop: inView ? 0 : 50,
-          marginBottom: inView ? 0 : -50,
+          marginTop: inView ? 0 : 30,
+          marginBottom: inView ? 0 : -30,
         }}
         config={config.gentle}
         delay={200}
