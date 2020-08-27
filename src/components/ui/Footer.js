@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     minHeight: "14rem",
     marginLeft: 0,
-    zIndex: 1302,
+    zIndex: 1500,
     position: "relative",
     [theme.breakpoints.down("md")]: {
       minHeight: "4rem",
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   gridItem: {
     margin: "1.5rem",
+    zIndex: 1,
     [theme.breakpoints.down("md")]: {
       margin: "1rem",
     },
@@ -245,8 +246,8 @@ const Footer = ({ setValue }) => {
             <Instagram className={classes.icon} />
           </Grid>
         </Grid>
+        <DevTag />
       </div>
-      <DevTag />
     </Fragment>
   );
 };

@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     backgroundColor: theme.palette.text.secondary,
+    zIndex: 1500,
   },
   tag: {
     padding: "0.1rem 2rem",

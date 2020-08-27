@@ -30,7 +30,7 @@ function App() {
             <Route
               exact
               path="/data"
-              render={(props) => <Data {...props} dataset={"all"} />}
+              render={(props) => <Data {...props} dataset={null} />}
             />
             <Route
               exact
