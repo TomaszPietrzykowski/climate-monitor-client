@@ -1,33 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import ListItem from "@material-ui/core/ListItem";
 import Hidden from "@material-ui/core/Hidden";
 import { datasets } from "./Datasets";
 import BackIcon from "@material-ui/icons/ArrowBack";
+import Button from "@material-ui/core/Button";
 
-const drawerWidth = 350;
+import Content from "./Content";
+
+const drawerWidth = "320px";
 
 const useStyles = makeStyles((theme) => ({
-  //   container: {
-  //     display: "flex",
-  //     flexDirection: "column",
-  //   },
-  root: {
-    display: "flex",
-    maxWidth: 1200,
-    margin: "auto",
-  },
   titleBar: {
     width: "100%",
     display: "flex",
     justifyContent: "flex-start",
     zIndex: theme.zIndex.drawer + 1,
-    position: "fixed",
+    // position: "fixed",
     background: theme.palette.primary.main,
   },
   sectionHeader: {
@@ -37,22 +26,34 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.6rem",
     margin: "0.8rem 4rem",
   },
+  container: {
+    display: "flex",
+    justifyContent: "flex-start",
+    maxWidth: 1300,
+    margin: "auto",
+    // border: "1px solid green",
+  },
   drawer: {
-    width: drawerWidth,
-    zIndex: 1,
+    minWidth: drawerWidth,
+    // border: "1px solid red",
+    height: "100%",
+    overflow: "auto",
   },
   list: {
-    marginTop: "10rem",
-    marginBottom: "16rem",
-    width: drawerWidth,
-    // flexShrink: 0,
+    marginTop: "2rem",
+    marginBottom: "10rem",
+    listStyle: "none",
   },
   listItem: {
+    display: "flex",
     fontFamily: "Poppins",
     fontWeight: "bold",
     color: theme.palette.text.secondary,
     fontSize: "1rem",
-    marginLeft: "1rem",
+    margin: "0.1rem 0rem 0.1rem 1rem",
+    padding: "0.4rem",
+    paddingLeft: "1rem",
+    cursor: "pointer",
     "&:hover": {
       backgroundColor: theme.palette.grey.A100,
     },
@@ -63,21 +64,30 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
     fontSize: "1rem",
     borderLeft: "5px solid green",
-    marginLeft: "1rem",
+    margin: "0.1rem 0rem 0.1rem 1rem",
+    padding: "0.4rem",
+    paddingLeft: "1rem",
     "&:hover": {
       cursor: "default",
     },
   },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerContainer: {
-    overflow: "auto",
-    overflowX: "hidden",
-  },
   content: {
     fontSize: "2rem",
     padding: "3rem",
+    // border: "1px solid blue",
+  },
+  icon: {
+    marginRight: "0.8rem",
+  },
+  btn: {
+    display: "flex",
+    textTransform: "none",
+  },
+  btnText: {
+    fontFamily: "Poppins",
+    fontWeight: "bold",
+    color: theme.palette.text.primary,
+    fontSize: "1rem",
   },
 }));
 
@@ -85,135 +95,71 @@ const DataDisplay = ({ dataset }) => {
   const activeDataset = datasets[dataset];
   const [activeData, setActiveData] = useState(activeDataset.scopes[0]);
   const [index, setIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
   const classes = useStyles();
 
+  useEffect(() => {
+    console.log("use effect called");
+    getData(activeDataset.scopes[0].endpoint);
+    setIndex(0);
+    // eslint-disable-next-line
+  }, [dataset]);
+
   const getData = async (endpoint) => {
+    setLoading(true);
     try {
       const res = await fetch(
         `https://api.climatemonitor.info/api/v1/chartdata/${endpoint}`
       );
       const data = await res.json();
-      console.log(data.data.title);
       setActiveData(data.data);
-      console.log(data.data);
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
   };
 
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className={classes.container}>
+    <Fragment>
       <div className={classes.titleBar}>
         <div className={classes.sectionHeader}>{activeDataset.header}</div>
       </div>
-      <div className={classes.root}>
+      {/* <Toolbar /> */}
+      <div className={classes.container}>
         <Hidden mdDown>
-          <Drawer
-            className={classes.drawer}
-            variant="permanent"
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            <div className={classes.drawerContainer}>
-              <List className={classes.list}>
-                <ListItem
-                  className={classes.listItem}
-                  style={{ opacity: 0.7 }}
-                  button
-                  disableRipple
-                  key={"backbutton"}
-                  component={Link}
-                  to="/data"
+          <div className={classes.drawer}>
+            <div className={classes.list}>
+              <div className={classes.listItem} style={{ opacity: 0.7 }}>
+                <Button component={Link} to="/data" className={classes.btn}>
+                  <BackIcon className={classes.icon} />
+                  <div className={classes.btnText}>Back to all data</div>
+                </Button>
+              </div>
+              {activeDataset.scopes.map((scope, i) => (
+                <div
+                  className={
+                    i === index ? classes.listItemActive : classes.listItem
+                  }
+                  key={scope.title}
+                  onClick={() => {
+                    getData(scope.endpoint);
+                    setIndex(i);
+                    scrollUp();
+                  }}
                 >
-                  <BackIcon />
-                  Back to all data
-                </ListItem>
-                {activeDataset.scopes.map((scope, i) => (
-                  <ListItem
-                    className={
-                      i === index ? classes.listItemActive : classes.listItem
-                    }
-                    button
-                    key={scope.title}
-                    onClick={() => {
-                      getData(scope.endpoint);
-                      setIndex(i);
-                    }}
-                  >
-                    {scope.title}
-                  </ListItem>
-                ))}
-                <Divider />
-              </List>
+                  {scope.title}
+                </div>
+              ))}
             </div>
-          </Drawer>
+          </div>
         </Hidden>
-        <main className={classes.content}>
-          <Toolbar />
-
-          <h2>{activeData.title}</h2>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <h5>{activeData.description}</h5>
-          <br />
-          <br />
-          <h5>{activeData.lastUpdate}</h5>
-          <br />
-          <br />
-          <br />
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu sc elerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu sc elerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu sc elerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </p>
-        </main>
+        {loading ? <h1>fetching data</h1> : <Content activeData={activeData} />}
       </div>
-    </div>
+    </Fragment>
   );
 };
 
