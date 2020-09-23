@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import LatestCard from "./LatestCard";
 import LatestPrimaryCard from "./LatestPrimaryCard";
 import { Button } from "@material-ui/core";
+import Loader from "../ui/Loader";
 
 const useStyles = makeStyles((theme) => ({
   siteContainer: {
@@ -112,7 +113,7 @@ const LatestReadings = ({ setValue }) => {
     <div className={classes.siteContainer}>
       <div className={classes.container}>
         {loading || !latest ? (
-          <p>loading</p>
+          <Loader />
         ) : (
           <Fragment>
             <LatestPrimaryCard latest={latest} />
