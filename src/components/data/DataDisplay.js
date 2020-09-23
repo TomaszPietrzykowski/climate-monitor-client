@@ -99,7 +99,6 @@ const DataDisplay = ({ dataset }) => {
   const classes = useStyles();
 
   useEffect(() => {
-    console.log("use effect called");
     getData(activeDataset.scopes[0].endpoint);
     setIndex(0);
     // eslint-disable-next-line

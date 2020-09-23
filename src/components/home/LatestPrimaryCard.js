@@ -40,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   labelSecondary: {
-    fontSize: "1rem",
+    fontSize: "1.2rem",
     fontWeight: 500,
     [theme.breakpoints.down("md")]: {
-      fontSize: "0.8rem",
+      fontSize: "1rem",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "0.7rem",
@@ -57,12 +57,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "flex-end",
     justifyContent: "center",
     fontSize: "3rem",
-    fontWeight: 500,
+    fontWeight: 400,
     marginTop: "1.3rem",
     marginBottom: "1.3rem",
     color: theme.palette.primary.main,
     [theme.breakpoints.down("md")]: {
-      fontSize: "2.5rem",
+      fontSize: "2.7rem",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "2rem",
@@ -75,25 +75,25 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
-    fontSize: "1.5rem",
-    fontWeight: 500,
+    fontSize: "2rem",
+    fontWeight: 400,
     marginTop: "0.5rem",
     marginBottom: "1rem",
     color: theme.palette.primary.main,
     [theme.breakpoints.down("md")]: {
-      fontSize: "1rem",
+      fontSize: "1.6rem",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "0.8rem",
     },
   },
   ppm: {
-    fontSize: "1rem",
-    fontWeight: 300,
+    fontSize: "1.3rem",
+    fontWeight: 400,
     paddingBottom: "0.65rem",
     marginLeft: "1rem",
     [theme.breakpoints.down("md")]: {
-      fontSize: "0.9rem",
+      fontSize: "1rem",
       marginLeft: "0.5rem",
       paddingBottom: "0.6rem",
     },
@@ -103,11 +103,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   ppmSecondary: {
-    fontSize: "0.9rem",
-    fontWeight: 300,
+    fontSize: "1rem",
+    fontWeight: 400,
     marginLeft: "0.6rem",
+    paddingBottom: "0.3rem",
     [theme.breakpoints.down("md")]: {
-      fontSize: "0.65rem",
+      fontSize: "0.85rem",
       marginLeft: "0.2rem",
       paddingBottom: "0.2rem",
     },
@@ -120,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
     fontWeight: 500,
     [theme.breakpoints.down("md")]: {
-      fontSize: "0.8rem",
+      fontSize: "0.9rem",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "0.7rem",

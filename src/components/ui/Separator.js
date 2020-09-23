@@ -1,5 +1,5 @@
 import React from "react";
-import svg from "../../assests/separator.svg";
+import svg from "../../assets/separator.svg";
 
 const Separator = () => {
   return (

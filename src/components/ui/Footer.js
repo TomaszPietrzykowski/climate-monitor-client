@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import { Link } from "react-router-dom";
 import DevTag from "./DevTag";
-import bear from "../../assests/bear.png";
+import bear from "../../assets/bear.png";
 import Facebook from "@material-ui/icons/Facebook";
 import Twitter from "@material-ui/icons/Twitter";
 import Instagram from "@material-ui/icons/Instagram";

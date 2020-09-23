@@ -47,13 +47,12 @@ const Slogan = () => {
       from={{ opacity: 0 }}
       to={{ opacity: 1 }}
       delay={300}
-      config={config.molasses}
+      config={config.slow}
     >
       {(props) => (
         <animated.div style={props} className={classes.sloganContainer}>
           <div className={classes.sloganText}>
-            Latest and historical{" "}
-            <span className={classes.strong}>climate data</span>
+            Latest and historical climate data
           </div>
         </animated.div>
       )}

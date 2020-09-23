@@ -16,7 +16,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import logo from "../../assests/logotype.svg";
+import logo from "../../assets/logotype.svg";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -49,14 +49,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logo: {
-    height: "2rem",
+    height: "2.2rem",
     margin: "0.8rem 0rem",
     [theme.breakpoints.down("sm")]: {
       margin: "0rem",
-      height: "1.7rem",
+      height: "2rem",
     },
     [theme.breakpoints.down("xs")]: {
-      height: "1.5rem",
+      height: "1.8rem",
     },
   },
   tabContainer: {

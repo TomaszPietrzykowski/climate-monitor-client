@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import { useInView } from "react-intersection-observer";
 import { Spring, animated, config } from "react-spring/renderprops";
 
-import amazon from "../../assests/amazon.jpg";
+import amazon from "../../assets/amazon.jpg";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
