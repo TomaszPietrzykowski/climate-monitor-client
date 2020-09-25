@@ -8,9 +8,9 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
   sloganContainer: {
-    margin: "auto",
-    marginTop: "6rem",
-    marginBottom: "8rem",
+    margin: "6rem auto",
+    // marginTop: "6rem",
+    // marginBottom: "6rem",
     maxWidth: 1200,
     display: "flex",
     flexDirection: "column",
@@ -18,8 +18,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: "3.5rem",
     [theme.breakpoints.down("sm")]: {
-      marginTop: "4rem",
-      marginBottom: "6rem",
+      margin: "4rem auto",
       padding: "1rem",
     },
   },
@@ -101,14 +100,13 @@ const GetInvolved = ({ setValue }) => {
   return (
     <div className={classes.sloganContainer}>
       <Spring
-        from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
+        from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
         to={{
           opacity: inView ? 1 : 0,
-          marginTop: inView ? 0 : 30,
-          marginBottom: inView ? 0 : -30,
+          marginTop: inView ? 0 : 25,
+          marginBottom: inView ? 0 : -25,
         }}
         config={config.gentle}
-        delay={200}
       >
         {(props) => (
           <animated.div style={props} ref={ref} className={classes.flex}>
