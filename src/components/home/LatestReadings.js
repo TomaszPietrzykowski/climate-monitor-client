@@ -8,7 +8,7 @@ import Loader from "../ui/Loader";
 
 const useStyles = makeStyles((theme) => ({
   siteContainer: {
-    maxWidth: 1200,
+    maxWidth: 1300,
     margin: "auto",
   },
   container: {

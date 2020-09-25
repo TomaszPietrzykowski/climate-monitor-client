@@ -6,7 +6,7 @@ import { Spring, animated, config } from "react-spring/renderprops";
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    maxWidth: 1200,
+    maxWidth: 1300,
     margin: "auto",
     justifyContent: "space-between",
     textAlign: "center",
@@ -69,11 +69,11 @@ const Description = () => {
     <div className={classes.container}>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
+          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
             opacity: inView1 ? 1 : 0,
-            marginTop: inView1 ? 0 : 25,
-            marginBottom: inView1 ? 0 : -25,
+            marginTop: inView1 ? 0 : 30,
+            marginBottom: inView1 ? 0 : -30,
           }}
           config={config.gentle}
         >
@@ -93,11 +93,11 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
+          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
             opacity: inView2 ? 1 : 0,
-            marginTop: inView2 ? 0 : 25,
-            marginBottom: inView2 ? 0 : -25,
+            marginTop: inView2 ? 0 : 30,
+            marginBottom: inView2 ? 0 : -30,
           }}
           config={config.gentle}
         >
@@ -105,7 +105,7 @@ const Description = () => {
             <animated.div style={props} ref={ref2}>
               <div className={classes.title}>Comprehensive</div>
               <div className={classes.text}>
-                Well over 50 different datasets, collection of data on the most
+                Well over 40 different datasets, collection of data on the most
                 important climate factors: levels of multiple atmospheric
                 greenhouse gases, land and ocean temperatures, trends in ocean
                 levels as well as condition of Arctica's and Antarctica's
@@ -117,11 +117,11 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
+          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
           to={{
             opacity: inView3 ? 1 : 0,
-            marginTop: inView3 ? 0 : 25,
-            marginBottom: inView3 ? 0 : -25,
+            marginTop: inView3 ? 0 : 30,
+            marginBottom: inView3 ? 0 : -30,
           }}
           config={config.gentle}
         >

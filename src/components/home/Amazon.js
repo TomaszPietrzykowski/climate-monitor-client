@@ -117,11 +117,11 @@ const Amazon = ({ setValue }) => {
         <div className={classes.flexContainer}>
           <div className={classes.tabLeft}>
             <Spring
-              from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
+              from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
               to={{
                 opacity: inView1 ? 1 : 0,
-                marginTop: inView1 ? 0 : 25,
-                marginBottom: inView1 ? 0 : -25,
+                marginTop: inView1 ? 0 : 30,
+                marginBottom: inView1 ? 0 : -30,
               }}
               config={config.gentle}
             >
@@ -150,11 +150,11 @@ const Amazon = ({ setValue }) => {
           </div>
           <div className={classes.tabRight}>
             <Spring
-              from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
+              from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
               to={{
                 opacity: inView2 ? 1 : 0,
-                marginTop: inView2 ? 0 : 25,
-                marginBottom: inView2 ? 0 : -25,
+                marginTop: inView2 ? 0 : 30,
+                marginBottom: inView2 ? 0 : -30,
               }}
               config={config.gentle}
             >
