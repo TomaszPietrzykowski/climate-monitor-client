@@ -23,24 +23,21 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     fontFamily: "Poppins",
-    paddingTop: "2rem",
-    paddingBottom: "2rem",
+    padding: "2rem 0",
     margin: "3rem",
     color: theme.palette.text.secondary,
     height: "100%",
     [theme.breakpoints.down("md")]: {
       margin: "1rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      margin: "1rem 3rem",
+      padding: "2rem 1rem",
     },
     [theme.breakpoints.down("xs")]: {
-      margin: "1rem",
+      padding: "2rem 0",
     },
   },
   title: {
     fontSize: "1.6rem",
-    fontWeight: "bold",
+    fontWeight: 600,
     marginBottom: "3rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "1.2rem",
@@ -52,39 +49,36 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: "0.8rem",
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.9rem",
+    },
   },
 }));
 
 const Description = () => {
   const classes = useStyles();
-  const [ref, inView] = useInView({
+  const intersectionOptions = {
     triggerOnce: true,
     trigger: 1,
-  });
-  const [ref1, inView1] = useInView({
-    triggerOnce: true,
-    trigger: 1,
-  });
-  const [ref2, inView2] = useInView({
-    triggerOnce: true,
-    trigger: 1,
-  });
+  };
+  const [ref1, inView1] = useInView(intersectionOptions);
+  const [ref2, inView2] = useInView(intersectionOptions);
+  const [ref3, inView3] = useInView(intersectionOptions);
 
   return (
     <div className={classes.container}>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
+          from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
           to={{
-            opacity: inView ? 1 : 0,
-            marginTop: inView ? 0 : 30,
-            marginBottom: inView ? 0 : -30,
+            opacity: inView1 ? 1 : 0,
+            marginTop: inView1 ? 0 : 25,
+            marginBottom: inView1 ? 0 : -25,
           }}
           config={config.gentle}
-          delay={200}
         >
           {(props) => (
-            <animated.div style={props} ref={ref}>
+            <animated.div style={props} ref={ref1}>
               <div className={classes.title}>Up to date</div>
               <div className={classes.text}>
                 Climate Monitor database is being updated with recently
@@ -99,17 +93,16 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
+          from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
           to={{
-            opacity: inView1 ? 1 : 0,
-            marginTop: inView1 ? 0 : 30,
-            marginBottom: inView1 ? 0 : -30,
+            opacity: inView2 ? 1 : 0,
+            marginTop: inView2 ? 0 : 25,
+            marginBottom: inView2 ? 0 : -25,
           }}
           config={config.gentle}
-          delay={200}
         >
           {(props) => (
-            <animated.div style={props} ref={ref1}>
+            <animated.div style={props} ref={ref2}>
               <div className={classes.title}>Comprehensive</div>
               <div className={classes.text}>
                 Well over 50 different datasets, collection of data on the most
@@ -124,17 +117,16 @@ const Description = () => {
       </div>
       <div className={classes.tab}>
         <Spring
-          from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
+          from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
           to={{
-            opacity: inView2 ? 1 : 0,
-            marginTop: inView2 ? 0 : 30,
-            marginBottom: inView2 ? 0 : -30,
+            opacity: inView3 ? 1 : 0,
+            marginTop: inView3 ? 0 : 25,
+            marginBottom: inView3 ? 0 : -25,
           }}
           config={config.gentle}
-          delay={200}
         >
           {(props) => (
-            <animated.div style={props} ref={ref2}>
+            <animated.div style={props} ref={ref3}>
               <div className={classes.title}>Accessible</div>
               <div className={classes.text}>
                 Data collected over multiple sources, delivered to you in one

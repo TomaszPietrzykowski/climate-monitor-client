@@ -52,28 +52,25 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     fontFamily: "Poppins, sans",
     fontSize: "0.95rem",
-    width: "150px",
+    // width: "150px",
     textTransform: "none",
     border: "3px solid",
     marginTop: "1.5rem",
     marginLeft: "0rem",
     marginRight: "0rem",
+    padding: "0.3rem 1.5rem",
     "&:hover": {
       border: "3px solid",
     },
-    [theme.breakpoints.down("md")]: {
-      width: "130px",
-    },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
+      padding: "0.2rem 1rem",
       fontSize: "0.8rem",
-      width: "120px",
+      fontWeight: 500,
+      marginTop: "1rem",
       border: "2px solid",
       "&:hover": {
         border: "2px solid",
       },
-    },
-    [theme.breakpoints.down("xs")]: {
-      marginTop: "1rem",
     },
   },
 }));
@@ -136,7 +133,7 @@ const LatestReadings = ({ setValue }) => {
                 to="/data"
                 onClick={() => setValue(1)}
               >
-                More Data
+                More&nbsp;Data
               </Button>
             </div>
           </Fragment>

@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     width: "100%",
     minHeight: "500px",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       backgroundPosition: "left",
     },
   },
   siteContainer: {
-    maxWidth: 1200,
+    maxWidth: 1300,
     margin: "auto",
   },
   flexContainer: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     minHeight: "500px",
     alignItems: "center",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       padding: "1rem",
     },
@@ -35,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
   tabLeft: {
     display: "flex",
     flexDirection: "column",
-    marginLeft: "2rem",
+    marginLeft: "3rem",
     textAlign: "left",
     alignItems: "flex-start",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginLeft: 0,
       marginTop: "6rem",
       textAlign: "center",
@@ -48,10 +48,10 @@ const useStyles = makeStyles((theme) => ({
   tabRight: {
     display: "flex",
     flexDirection: "column",
-    marginRight: "2rem",
+    marginRight: "3rem",
     textAlign: "right",
     alignItems: "flex-end",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginRight: 0,
       marginTop: "6rem",
       marginBottom: "6rem",
@@ -61,18 +61,22 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontFamily: "Poppins, sans",
-    fontSize: "0.9rem",
-    fontWeight: 500,
+    fontSize: "1rem",
+    fontWeight: 400,
     color: "white",
     textShadow: "0px 0px 15px rgba(0, 0, 0, 1)",
     marginTop: "1rem",
+    lineHeight: "1.5rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "0.9rem",
+    },
   },
   title: {
     fontFamily: "Poppins, sans",
     fontSize: "2rem",
     color: "white",
     textShadow: "0px 0px 4px rgba(0, 0, 0, 1)",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
       fontSize: "1.6rem",
     },
   },
@@ -83,13 +87,13 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Poppins, sans",
     fontSize: "0.95rem",
     border: "2px solid white",
-    width: "150px",
     textTransform: "none",
     marginTop: "2rem",
     marginLeft: "0rem",
     marginRight: "0rem",
-    [theme.breakpoints.down("sm")]: {
-      width: "auto",
+    padding: "0.3rem 1.5rem",
+    [theme.breakpoints.down("xs")]: {
+      padding: "0.2rem 1rem",
       fontSize: "0.8rem",
       fontWeight: 500,
     },
@@ -98,11 +102,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Amazon = ({ setValue }) => {
   const classes = useStyles();
-  const [ref, inView] = useInView({
+  const [ref1, inView1] = useInView({
     triggerOnce: true,
     trigger: 1,
   });
-  const [ref1, inView1] = useInView({
+  const [ref2, inView2] = useInView({
     triggerOnce: true,
     trigger: 1,
   });
@@ -113,17 +117,16 @@ const Amazon = ({ setValue }) => {
         <div className={classes.flexContainer}>
           <div className={classes.tabLeft}>
             <Spring
-              from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
+              from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
               to={{
-                opacity: inView ? 1 : 0,
-                marginTop: inView ? 0 : 30,
-                marginBottom: inView ? 0 : -30,
+                opacity: inView1 ? 1 : 0,
+                marginTop: inView1 ? 0 : 25,
+                marginBottom: inView1 ? 0 : -25,
               }}
               config={config.gentle}
-              delay={200}
             >
               {(props) => (
-                <animated.div style={props} ref={ref}>
+                <animated.div style={props} ref={ref1}>
                   <div className={classes.title}>Climate News</div>
                   <div className={classes.text}>
                     Latest news on climate change,
@@ -147,20 +150,19 @@ const Amazon = ({ setValue }) => {
           </div>
           <div className={classes.tabRight}>
             <Spring
-              from={{ opacity: 0, marginTop: 30, marginBottom: -30 }}
+              from={{ opacity: 0, marginTop: 25, marginBottom: -25 }}
               to={{
-                opacity: inView1 ? 1 : 0,
-                marginTop: inView1 ? 0 : 30,
-                marginBottom: inView1 ? 0 : -30,
+                opacity: inView2 ? 1 : 0,
+                marginTop: inView2 ? 0 : 25,
+                marginBottom: inView2 ? 0 : -25,
               }}
               config={config.gentle}
-              delay={200}
             >
               {(props) => (
-                <animated.div style={props} ref={ref1}>
+                <animated.div style={props} ref={ref2}>
                   <div className={classes.title}>Public API</div>
                   <div className={classes.text}>
-                    Your climate data just milliseconds away.
+                    Climate data just milliseconds away.
                     <br />
                     Free to use, rich public API <br />
                     with most crutial climate factors.

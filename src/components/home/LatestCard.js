@@ -7,7 +7,7 @@ import { Spring } from "react-spring/renderprops";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 275,
+    minWidth: "32%",
     textAlign: "center",
     fontFamily: "Poppins",
     color: theme.palette.text.secondary,
@@ -21,26 +21,27 @@ const useStyles = makeStyles((theme) => ({
     padding: "0.3rem",
   },
   label: {
-    fontSize: "0.9rem",
+    fontSize: "1.2rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1rem",
+    },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "0.8rem",
+      fontSize: "0.85rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "0.7rem",
+      fontSize: "0.75rem",
     },
   },
   value: {
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
-    fontSize: "1.8rem",
-    fontWeight: 500,
-    marginTop: "0.8rem",
-    marginBottom: "0.8rem",
+    fontSize: "2rem",
+
+    margin: "1rem 0rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "1.4rem",
-      marginTop: "0.2rem",
-      marginBottom: "0.2rem",
+      margin: "0.5rem 0rem",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "1.2rem",
@@ -53,31 +54,21 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
+    fontWeight: 500,
   },
   ppm: {
-    fontSize: "0.9rem",
-    fontWeight: 300,
+    fontSize: "1rem",
     marginLeft: "0.2rem",
-    paddingBottom: "0.5rem",
+    paddingBottom: "0.3rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "0.7rem",
       paddingBottom: "0.2rem",
     },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "0.65rem",
-      paddingBottom: "0.1rem",
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "0.6rem",
-    },
   },
   date: {
-    fontSize: "0.8rem",
+    fontSize: "1rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: "0.7rem",
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "0.6rem",
     },
   },
 }));
@@ -92,7 +83,7 @@ const LatestCard = ({ latest, labelText, index }) => {
           <Hidden mdDown>
             Corresponding reading <br />{" "}
           </Hidden>
-          {labelText}
+          {labelText}:
         </div>
         <div className={classes.value}>
           <Spring
@@ -109,7 +100,7 @@ const LatestCard = ({ latest, labelText, index }) => {
           </Spring>
         </div>
         <div className={classes.date}>
-          <Hidden mdDown>Measurement: </Hidden>
+          <Hidden mdDown>value for: </Hidden>
           {latest.labels[index + 1]}
         </div>
       </CardContent>

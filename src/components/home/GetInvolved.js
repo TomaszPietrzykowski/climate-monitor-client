@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   sloganContainer: {
     margin: "auto",
     marginTop: "6rem",
-    marginBottom: "10rem",
+    marginBottom: "8rem",
     maxWidth: 1200,
     display: "flex",
     flexDirection: "column",
@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "3.5rem",
     [theme.breakpoints.down("sm")]: {
       marginTop: "4rem",
+      marginBottom: "6rem",
       padding: "1rem",
     },
   },
@@ -27,33 +28,28 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
     textAlign: "center",
     color: "rgba(0, 0, 0, 0.5)",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1.6rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1.4rem",
-    },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1.2rem",
+      fontSize: "1.6rem",
     },
   },
   about: {
     maxWidth: "780px",
     fontFamily: "Poppins, sans",
-    fontSize: "1.2rem",
+    fontSize: "1rem",
     textAlign: "center",
     lineHeight: "2rem",
     color: "rgba(0, 0, 0, 0.5)",
     padding: "3rem",
     marginTop: "1.5rem",
     [theme.breakpoints.down("md")]: {
-      fontSize: "1rem",
       padding: "1rem",
     },
     [theme.breakpoints.down("sm")]: {
-      lineHeight: "1rem",
-      fontSize: "0.8rem",
+      lineHeight: "1.5rem",
       marginTop: "1rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: ".9rem",
     },
   },
   blue: {
@@ -71,28 +67,26 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     fontFamily: "Poppins, sans",
     fontSize: "0.95rem",
-    width: "150px",
     textTransform: "none",
     border: "3px solid",
     marginTop: "1.5rem",
     marginLeft: "0rem",
     marginRight: "0rem",
+    padding: "0.3rem 2rem",
     "&:hover": {
       border: "3px solid",
     },
-    [theme.breakpoints.down("md")]: {
-      width: "130px",
-    },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "0.8rem",
-      width: "120px",
       border: "2px solid",
       "&:hover": {
         border: "2px solid",
       },
     },
+
     [theme.breakpoints.down("xs")]: {
-      marginTop: "1rem",
+      padding: "0.2rem 1.5rem",
+      fontSize: "0.8rem",
+      fontWeight: 500,
     },
   },
 }));
@@ -118,12 +112,17 @@ const GetInvolved = ({ setValue }) => {
       >
         {(props) => (
           <animated.div style={props} ref={ref} className={classes.flex}>
-            <div className={classes.sloganText}>Data speaks volumes</div>
+            <div className={classes.sloganText}>Get involved</div>
             <div className={classes.about}>
               The<span className={classes.blue}> climate monitor </span>
               project is a living initiative, aimed at providing you hard data
-              on climate change in a most useful and accessible way. <br /> Get
-              involved and share ideas for even better experience.
+              on climate change in a most useful and accessible way. No cristal
+              ball guesses on "tipping point" and other factors too complex for
+              responsible estimation. Data speaks volumes and we actually know a
+              lot by now.
+              <br />
+              <br /> Suggest functionality or request additional data. Share
+              ideas and opinions for even better experience.
             </div>
             <Button
               variant="outlined"

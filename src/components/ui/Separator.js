@@ -14,7 +14,7 @@ const Separator = () => {
         src={svg}
         alt="separator"
         style={{
-          width: "70%",
+          width: "60%",
           margin: "auto",
         }}
       />

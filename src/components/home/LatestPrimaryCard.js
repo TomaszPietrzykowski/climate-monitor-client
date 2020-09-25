@@ -26,6 +26,14 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "2rem",
     },
   },
+  cardContent: {
+    [theme.breakpoints.down("xs")]: {
+      padding: ".5rem",
+      "&:last-child": {
+        paddingBottom: "1rem",
+      },
+    },
+  },
   label: {
     fontSize: "1.3rem",
     fontWeight: 500,
@@ -33,10 +41,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "0.8rem",
+      fontSize: "0.85rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "0.7rem",
+      fontSize: "0.75rem",
     },
   },
   labelSecondary: {
@@ -46,10 +54,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "0.7rem",
+      fontSize: "0.85rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "0.6rem",
+      fontSize: "0.7rem",
     },
   },
   value: {
@@ -84,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1.6rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "0.8rem",
+      fontSize: "1.2rem",
     },
   },
   ppm: {
@@ -110,24 +118,24 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: "0.85rem",
       marginLeft: "0.2rem",
-      paddingBottom: "0.2rem",
+      paddingBottom: "0.3rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "0.5rem",
-      paddingBottom: "0.06rem",
+      fontSize: "0.75rem",
+      paddingBottom: "0.2rem",
     },
   },
   date: {
-    fontSize: "1rem",
+    fontSize: "1.3rem",
     fontWeight: 500,
     [theme.breakpoints.down("md")]: {
-      fontSize: "0.9rem",
+      fontSize: "1rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "0.7rem",
+      fontSize: "0.85rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "0.6rem",
+      fontSize: "0.7rem",
     },
   },
 }));
@@ -138,7 +146,7 @@ const LatestPrimaryCard = ({ latest }) => {
   return (
     <div className={classes.flexContainer}>
       <Card className={classes.root}>
-        <CardContent>
+        <CardContent className={classes.cardContent}>
           <div className={classes.label}>Current atmospheric CO2:</div>
           <div className={classes.value}>
             <Spring
@@ -164,11 +172,11 @@ const LatestPrimaryCard = ({ latest }) => {
               )}
             </Spring>
           </div>
-          <div className={classes.date}>Measurement: {latest.labels[0]}</div>
+          <div className={classes.date}>value for: {latest.labels[0]}</div>
         </CardContent>
       </Card>
       <Card className={classes.root}>
-        <CardContent>
+        <CardContent className={classes.cardContent}>
           <div className={classes.labelSecondary}>Trend for the date:</div>
           <div className={classes.valueSecondary}>
             <Spring
