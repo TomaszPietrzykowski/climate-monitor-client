@@ -44,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContainer: {
     padding: 0,
+    "&:hover": {
+      backgroundColor: "white",
+    },
     [theme.breakpoints.down("md")]: {
       paddingLeft: "1rem",
     },

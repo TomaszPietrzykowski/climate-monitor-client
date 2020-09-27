@@ -1,8 +1,9 @@
 import React from "react";
 
 const Content = ({ activeData }) => {
+  console.log(activeData);
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <h2>{activeData.title}</h2>
       <br />
       <br />

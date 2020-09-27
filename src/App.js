@@ -30,42 +30,58 @@ function App() {
             <Route
               exact
               path="/data"
-              render={(props) => <Data {...props} dataset={null} />}
+              render={(props) => (
+                <Data {...props} dataset={null} setValue={setValue} />
+              )}
             />
             <Route
               exact
               path="/co2"
-              render={(props) => <Data {...props} dataset={"co2"} />}
+              render={(props) => (
+                <Data {...props} dataset={"co2"} setValue={setValue} />
+              )}
             />
             <Route
               exact
               path="/ch4"
-              render={(props) => <Data {...props} dataset={"ch4"} />}
+              render={(props) => (
+                <Data {...props} dataset={"ch4"} setValue={setValue} />
+              )}
             />
             <Route
               exact
               path="/sf6"
-              render={(props) => <Data {...props} dataset={"sf6"} />}
+              render={(props) => (
+                <Data {...props} dataset={"sf6"} setValue={setValue} />
+              )}
             />
             <Route
               exact
               path="/n2o"
-              render={(props) => <Data {...props} dataset={"n2o"} />}
+              render={(props) => (
+                <Data {...props} dataset={"n2o"} setValue={setValue} />
+              )}
             />
             <Route
               exact
               path="/temperatures"
-              render={(props) => <Data {...props} dataset={"temperatures"} />}
+              render={(props) => (
+                <Data {...props} dataset={"temperatures"} setValue={setValue} />
+              )}
             />
             <Route
               exact
               path="/sealevels"
-              render={(props) => <Data {...props} dataset={"sealevels"} />}
+              render={(props) => (
+                <Data {...props} dataset={"sealevels"} setValue={setValue} />
+              )}
             />
             <Route
               exact
               path="/glaciers"
-              render={(props) => <Data {...props} dataset={"glaciers"} />}
+              render={(props) => (
+                <Data {...props} dataset={"glaciers"} setValue={setValue} />
+              )}
             />
             <Route
               exact

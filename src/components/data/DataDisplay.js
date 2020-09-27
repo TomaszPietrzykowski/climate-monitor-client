@@ -8,15 +8,12 @@ import Button from "@material-ui/core/Button";
 
 import Content from "./Content";
 
-const drawerWidth = "320px";
+const drawerWidth = "360px";
 
 const useStyles = makeStyles((theme) => ({
   titleBar: {
     width: "100%",
-    display: "flex",
-    justifyContent: "flex-start",
     zIndex: theme.zIndex.drawer + 1,
-    // position: "fixed",
     background: theme.palette.primary.main,
   },
   sectionHeader: {
@@ -24,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     color: "white",
     fontSize: "1.6rem",
-    margin: "0.8rem 4rem",
+    marginLeft: `${drawerWidth}`,
+    padding: "1rem",
   },
   container: {
     display: "flex",
     justifyContent: "flex-start",
-    maxWidth: 1300,
-    margin: "auto",
+    maxWidth: 1600,
+
     // border: "1px solid green",
   },
   drawer: {
@@ -47,26 +45,26 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     display: "flex",
     fontFamily: "Poppins",
-    fontWeight: "bold",
-    color: theme.palette.text.secondary,
+    fontWeight: 400,
+    color: theme.palette.text.primary,
     fontSize: "1rem",
-    margin: "0.1rem 0rem 0.1rem 1rem",
-    padding: "0.4rem",
-    paddingLeft: "1rem",
+    margin: ".5rem 0 .5rem 2rem",
+    padding: "0.8rem",
+    paddingLeft: 21,
     cursor: "pointer",
     "&:hover": {
-      backgroundColor: theme.palette.grey.A100,
+      color: theme.palette.text.secondary,
     },
   },
   listItemActive: {
     fontFamily: "Poppins",
-    fontWeight: "bold",
-    color: theme.palette.text.primary,
+    fontWeight: 400,
+    color: theme.palette.common.green,
     fontSize: "1rem",
-    borderLeft: "5px solid green",
-    margin: "0.1rem 0rem 0.1rem 1rem",
-    padding: "0.4rem",
-    paddingLeft: "1rem",
+    borderLeft: `5px solid ${theme.palette.common.green}`,
+    margin: ".5rem 0 .5rem 2rem",
+    padding: "0.8rem",
+    paddingLeft: 16,
     "&:hover": {
       cursor: "default",
     },
@@ -85,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
   btnText: {
     fontFamily: "Poppins",
-    fontWeight: "bold",
+    fontWeight: 500,
     color: theme.palette.text.primary,
     fontSize: "1rem",
   },

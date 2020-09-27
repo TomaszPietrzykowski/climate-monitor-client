@@ -1,6 +1,6 @@
 exports.datasets = {
   co2: {
-    header: "Carbon nowy CO2",
+    header: "Carbon dioxide CO2",
     scopes: [
       { title: "Annual CO2 Mauna Loa", endpoint: "annual_co2_ml" },
       { title: "Annual CO2 Global", endpoint: "annual_co2_gl" },
