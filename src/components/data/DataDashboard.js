@@ -4,9 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 // import { datasets } from "./Datasets";
 // import BackIcon from "@material-ui/icons/ArrowBack";
-// import Button from "@material-ui/core/Button";
 
-// import Content from "./Content";
+import DataTabs from "./DataTabs";
 
 const drawerWidth = "360px";
 
@@ -18,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionHeader: {
     fontFamily: "Poppins",
-    fontWeight: 500,
+    fontWeight: 400,
     color: "white",
-    fontSize: "1.6rem",
-    marginLeft: `${drawerWidth}`,
+    fontSize: "1.4rem",
+    marginLeft: 37,
     padding: "1rem",
   },
   container: {
@@ -36,13 +35,16 @@ const useStyles = makeStyles((theme) => ({
     // border: "1px solid red",
     height: "100%",
     overflow: "auto",
+    // paddingTop: "4rem",
   },
   list: {
-    marginTop: "2rem",
+    // marginTop: "2rem",
     marginBottom: "10rem",
     listStyle: "none",
   },
   listItem: {
+    border: "1px solid transparent",
+    borderRadius: 4,
     display: "flex",
     fontFamily: "Poppins",
     textDecoration: "none",
@@ -54,20 +56,9 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 21,
     cursor: "pointer",
     "&:hover": {
-      color: theme.palette.text.secondary,
-    },
-  },
-  listItemActive: {
-    fontFamily: "Poppins",
-    fontWeight: 400,
-    color: theme.palette.common.green,
-    fontSize: "1rem",
-    borderLeft: `5px solid ${theme.palette.common.green}`,
-    margin: ".5rem 0 .5rem 2rem",
-    padding: "0.8rem",
-    paddingLeft: 16,
-    "&:hover": {
-      cursor: "default",
+      color: theme.palette.primary.main,
+      border: "1px solid rgba(0,0,0,.08)",
+      borderRadius: 4,
     },
   },
   content: {
@@ -139,11 +130,13 @@ const DataDashboard = () => {
                   <div className={classes.listItem}>Carbon dioxide CO2</div>
                 </Link>
               </li>
+
               <li>
                 <Link to="/ch4" className={classes.link}>
                   <div className={classes.listItem}>Methane CH4</div>
                 </Link>
               </li>
+
               <li>
                 <Link to="/sf6" className={classes.link}>
                   <div className={classes.listItem}>
@@ -174,7 +167,7 @@ const DataDashboard = () => {
             </ul>
           </div>
         </Hidden>
-        {/* {loading ? <h1>fetching data</h1> : <Content activeData={activeData} />} */}
+        <DataTabs />
       </div>
     </Fragment>
   );

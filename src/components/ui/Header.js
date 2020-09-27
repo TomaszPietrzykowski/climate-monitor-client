@@ -33,8 +33,12 @@ function ElevationScroll(props) {
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
+    padding: "0 57px",
     backgroundColor: "white",
     zIndex: theme.zIndex.modal + 1,
+    [theme.breakpoints.down("md")]: {
+      padding: "0 1rem",
+    },
   },
   toolbarMargin: {
     ...theme.mixins.toolbar,
@@ -44,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContainer: {
     padding: 0,
+
     "&:hover": {
       backgroundColor: "white",
     },
@@ -262,7 +267,7 @@ const Header = ({ value, setValue }) => {
     <Fragment>
       <ElevationScroll>
         <AppBar className={classes.appBar}>
-          <Toolbar disableGutters={matches ? true : false}>
+          <Toolbar disableGutters={true}>
             <Button
               disableRipple
               className={classes.logoContainer}

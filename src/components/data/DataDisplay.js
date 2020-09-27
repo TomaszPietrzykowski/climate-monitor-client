@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionHeader: {
     fontFamily: "Poppins",
-    fontWeight: 500,
+    fontWeight: 400,
     color: "white",
-    fontSize: "1.6rem",
-    marginLeft: `${drawerWidth}`,
+    fontSize: "1.4rem",
+    marginLeft: 37,
     padding: "1rem",
   },
   container: {
@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
     listStyle: "none",
   },
   listItem: {
+    border: "1px solid transparent",
+    borderRadius: 4,
     display: "flex",
     fontFamily: "Poppins",
     fontWeight: 400,
@@ -53,20 +55,27 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 21,
     cursor: "pointer",
     "&:hover": {
-      color: theme.palette.text.secondary,
+      color: theme.palette.primary.main,
+      border: "1px solid rgba(0,0,0,.08)",
+      borderRadius: 4,
     },
   },
   listItemActive: {
+    border: "1px solid transparent",
+    borderRadius: 4,
+    display: "flex",
     fontFamily: "Poppins",
     fontWeight: 400,
-    color: theme.palette.common.green,
+    // background: "rgba(0, 170, 255,.05)",
+    color: theme.palette.primary.main,
     fontSize: "1rem",
-    borderLeft: `5px solid ${theme.palette.common.green}`,
     margin: ".5rem 0 .5rem 2rem",
     padding: "0.8rem",
-    paddingLeft: 16,
+    paddingLeft: 21,
+    cursor: "pointer",
     "&:hover": {
       cursor: "default",
+      borderRadius: 4,
     },
   },
   content: {
@@ -74,18 +83,21 @@ const useStyles = makeStyles((theme) => ({
     padding: "3rem",
     // border: "1px solid blue",
   },
-  icon: {
-    marginRight: "0.8rem",
-  },
-  btn: {
-    display: "flex",
-    textTransform: "none",
-  },
-  btnText: {
-    fontFamily: "Poppins",
-    fontWeight: 500,
-    color: theme.palette.text.primary,
-    fontSize: "1rem",
+  // icon: {
+  //   marginRight: "0.8rem",
+  // },
+  // btn: {
+  //   display: "flex",
+  //   textTransform: "none",
+  // },
+  // btnText: {
+  //   fontFamily: "Poppins",
+  //   fontWeight: 500,
+  //   color: theme.palette.text.primary,
+  //   fontSize: "1rem",
+  // },
+  link: {
+    textDecoration: "none",
   },
 }));
 
@@ -125,17 +137,13 @@ const DataDisplay = ({ dataset }) => {
       <div className={classes.titleBar}>
         <div className={classes.sectionHeader}>{activeDataset.header}</div>
       </div>
-      {/* <Toolbar /> */}
       <div className={classes.container}>
         <Hidden mdDown>
           <div className={classes.drawer}>
             <div className={classes.list}>
-              <div className={classes.listItem} style={{ opacity: 0.7 }}>
-                <Button component={Link} to="/data" className={classes.btn}>
-                  <BackIcon className={classes.icon} />
-                  <div className={classes.btnText}>Back to all data</div>
-                </Button>
-              </div>
+              <Link to="/data" className={classes.link}>
+                <div className={classes.listItem}>Back to all data</div>
+              </Link>
               {activeDataset.scopes.map((scope, i) => (
                 <div
                   className={
