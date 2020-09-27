@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
   tabImg: {
     flex: 1,
     width: "100%",
-
     backgroundSize: "cover",
+    borderRadius: "4px 4px 0 0",
   },
   tabContent: {
     flex: 1,
