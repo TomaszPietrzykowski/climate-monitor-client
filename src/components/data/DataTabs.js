@@ -1,6 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import thumb1 from "../../assets/amazon.jpg";
+import thumb01 from "../../assets/co2tab.jpg";
+import thumb02 from "../../assets/ch4tab.jpg";
+import thumb03 from "../../assets/sf6tab.jpg";
+import thumb04 from "../../assets/n2otab.jpg";
+import thumb05 from "../../assets/temperaturestab.jpg";
+import thumb06 from "../../assets/sealevelstab.jpg";
+import thumb07 from "../../assets/glacierstab.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,17 +27,27 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     height: 278,
     width: 266,
-    border: "1px solid rgba(0,0,0,.12)",
+    // borderBottom: "1px solid rgba(0,0,0,.12)",
     borderRadius: 4,
-    margin: "2rem",
+    margin: "3rem",
     display: "flex",
     flexDirection: "column",
+    cursor: "pointer",
+    transition: "all 0.1s",
+    "&:hover": {
+      borderBottom: "1px solid rgba(0,0,0,.12)",
+      transform: "scale(1.02)",
+    },
+    "&:hover $tabImg": {
+      opacity: 1,
+    },
   },
   tabImg: {
     flex: 1,
     width: "100%",
     backgroundSize: "cover",
     borderRadius: "4px 4px 0 0",
+    opacity: 0.7,
   },
   tabContent: {
     flex: 1,
@@ -43,16 +59,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
     fontWeight: 500,
     color: theme.palette.text.primary,
-    padding: "1.1rem 1rem .8rem 1rem",
-    textAlign: "center",
+    padding: "1.1rem 1rem .8rem 0rem",
+    textAlign: "left",
   },
   tabText: {
     fontSize: "0.85rem",
     fontWeight: 400,
     // fontFamily: "Roboto",
     color: theme.palette.text.secondary,
-    padding: "0rem 1rem .6rem 1rem",
-    textAlign: "justify",
+    padding: "0rem 1rem .6rem 0rem",
+    textAlign: "left",
   },
   header: {
     width: "100%",
@@ -63,14 +79,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.4rem",
     color: theme.palette.text.primary,
   },
-  subHeader: {
-    width: "100%",
-    textAlign: "center",
-    paddingBottom: "2rem",
-    fontFamily: "Poppins",
-    fontSize: "1rem",
-    color: theme.palette.text.secondary,
-  },
+  // subHeader: {
+  //   width: "100%",
+  //   textAlign: "center",
+  //   paddingBottom: "2rem",
+  //   fontFamily: "Poppins",
+  //   fontSize: "1rem",
+  //   color: theme.palette.text.secondary,
+  // },
 }));
 
 const DataTabs = () => {
@@ -79,16 +95,16 @@ const DataTabs = () => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        All categories contain multiple sets of data
+        Categories contain multiple sets of data
       </div>
-      <div className={classes.subHeader}>
+      {/* <div className={classes.subHeader}>
         availaible as a chart with adjustable scope or json API
-      </div>
+      </div> */}
       <div className={classes.container}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb1})` }}
+            style={{ backgroundImage: `url(${thumb01})` }}
           ></div>
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Carbon dioxide</div>
@@ -101,7 +117,7 @@ const DataTabs = () => {
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb1})` }}
+            style={{ backgroundImage: `url(${thumb02})` }}
           ></div>
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Methane</div>
@@ -114,7 +130,7 @@ const DataTabs = () => {
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb1})` }}
+            style={{ backgroundImage: `url(${thumb03})` }}
           ></div>
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Sulfur hexafluoride</div>
@@ -127,7 +143,7 @@ const DataTabs = () => {
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb1})` }}
+            style={{ backgroundImage: `url(${thumb04})` }}
           ></div>
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Dinitrogen oxide</div>
@@ -140,7 +156,7 @@ const DataTabs = () => {
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb1})` }}
+            style={{ backgroundImage: `url(${thumb05})` }}
           ></div>
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Temperatures</div>
@@ -153,7 +169,7 @@ const DataTabs = () => {
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb1})` }}
+            style={{ backgroundImage: `url(${thumb06})` }}
           ></div>
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Sea levels</div>
@@ -166,7 +182,7 @@ const DataTabs = () => {
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb1})` }}
+            style={{ backgroundImage: `url(${thumb07})` }}
           ></div>
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Glaciers</div>
