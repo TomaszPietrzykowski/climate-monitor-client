@@ -3,7 +3,7 @@ import React from "react";
 const Content = ({ activeData }) => {
   console.log(activeData);
   return (
-    <div style={{ padding: "1rem" }}>
+    <div style={{ padding: "10rem" }}>
       <h2>{activeData.title}</h2>
       <br />
       <br />

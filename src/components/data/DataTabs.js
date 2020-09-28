@@ -47,8 +47,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   tabText: {
-    fontSize: "0.8rem",
+    fontSize: "0.85rem",
     fontWeight: 400,
+    // fontFamily: "Roboto",
     color: theme.palette.text.secondary,
     padding: "0rem 1rem .6rem 1rem",
     textAlign: "justify",
@@ -105,8 +106,8 @@ const DataTabs = () => {
           <div className={classes.tabContent}>
             <div className={classes.tabTitle}>Methane</div>
             <div className={classes.tabText}>
-              Carbon dioxide is the most known and the most human dependant
-              greenhouse gas.
+              Greenhouse gas 30 to 70 times more potent then carbon dioxide.
+              Assiciated e.g. with agriculture.
             </div>
           </div>
         </div>
@@ -129,7 +130,7 @@ const DataTabs = () => {
             style={{ backgroundImage: `url(${thumb1})` }}
           ></div>
           <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Dinitrous oxide</div>
+            <div className={classes.tabTitle}>Dinitrogen oxide</div>
             <div className={classes.tabText}>
               Carbon dioxide is the most known and the most human dependant
               greenhouse gas.

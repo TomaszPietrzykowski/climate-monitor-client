@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   titleBar: {
     width: "100%",
     zIndex: theme.zIndex.drawer + 1,
-    background: theme.palette.primary.main,
+    background: `linear-gradient(120deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
   },
   sectionHeader: {
     fontFamily: "Poppins",
@@ -35,10 +35,9 @@ const useStyles = makeStyles((theme) => ({
     // border: "1px solid red",
     height: "100%",
     overflow: "auto",
-    // paddingTop: "4rem",
+    paddingTop: "3.5rem",
   },
   list: {
-    // marginTop: "2rem",
     marginBottom: "10rem",
     listStyle: "none",
   },
@@ -56,8 +55,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 21,
     cursor: "pointer",
     "&:hover": {
-      color: theme.palette.primary.main,
-      border: "1px solid rgba(0,0,0,.08)",
+      color: theme.palette.primary.dark,
+      border: `1px solid ${theme.palette.primary.dark}`,
       borderRadius: 4,
     },
   },

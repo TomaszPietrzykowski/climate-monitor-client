@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   titleBar: {
     width: "100%",
     zIndex: theme.zIndex.drawer + 1,
-    background: theme.palette.primary.main,
+    background: `linear-gradient(120deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
   },
   sectionHeader: {
     fontFamily: "Poppins",
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
   },
   list: {
-    marginTop: "2rem",
+    // marginTop: "2rem",
     marginBottom: "10rem",
     listStyle: "none",
   },
@@ -55,19 +55,19 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 21,
     cursor: "pointer",
     "&:hover": {
-      color: theme.palette.primary.main,
-      border: "1px solid rgba(0,0,0,.08)",
+      color: theme.palette.primary.dark,
+      border: `1px solid ${theme.palette.primary.dark}`,
       borderRadius: 4,
     },
   },
   listItemActive: {
-    border: "1px solid transparent",
+    // border: "1px solid transparent",
     borderRadius: 4,
     display: "flex",
     fontFamily: "Poppins",
     fontWeight: 400,
-    // background: "rgba(0, 170, 255,.05)",
-    color: theme.palette.primary.main,
+    border: `1px solid ${theme.palette.primary.dark}`,
+    color: theme.palette.primary.dark,
     fontSize: "1rem",
     margin: ".5rem 0 .5rem 2rem",
     padding: "0.8rem",
@@ -83,19 +83,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "3rem",
     // border: "1px solid blue",
   },
-  // icon: {
-  //   marginRight: "0.8rem",
-  // },
-  // btn: {
-  //   display: "flex",
-  //   textTransform: "none",
-  // },
-  // btnText: {
-  //   fontFamily: "Poppins",
-  //   fontWeight: 500,
-  //   color: theme.palette.text.primary,
-  //   fontSize: "1rem",
-  // },
   link: {
     textDecoration: "none",
   },
