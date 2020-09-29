@@ -11,7 +11,7 @@ import Instagram from "@material-ui/icons/Instagram";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: theme.palette.common.footer,
+    background: `linear-gradient(120deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
     width: "100%",
     minHeight: "14rem",
     marginLeft: 0,
@@ -43,12 +43,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    ...theme.typography.tab,
+    fontFamily: "Poppins, sans",
+    marginLeft: "25px",
     fontSize: "0.9rem",
-    color: theme.palette.text.secondary,
+    fontWeight: 400,
+    color: "white",
     textDecoration: "none",
+    letterSpacing: 0.6,
     "&:hover": {
-      color: theme.palette.text.primary,
+      opacity: 0.6,
     },
   },
   social: {
@@ -58,9 +61,9 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: "1rem",
     fontSize: "2rem",
-    color: theme.palette.text.secondary,
+    color: "white",
     "&:hover": {
-      color: theme.palette.text.primary,
+      opacity: 0.6,
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "1.6rem",

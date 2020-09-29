@@ -24,7 +24,7 @@ export default createMuiTheme({
     tab: {
       fontFamily: "Poppins, sans",
       textTransform: "none",
-      fontWeight: "600",
+      fontWeight: 600,
       fontSize: "1rem",
       marginLeft: "25px",
     },
