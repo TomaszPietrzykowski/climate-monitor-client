@@ -1,6 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const blue = "#00aaff";
+const darkBlue = "rgba(0, 118, 178, 1)";
 const orange = "#ffba60";
 const whitish = "rgba(215, 215, 220, 1)";
 const green = "	rgba(71, 199, 27, 1)";
@@ -12,6 +13,7 @@ export default createMuiTheme({
       orange: `${orange}`,
       green: `${green}`,
       footer: `${whitish}`,
+      darkBlue: `${darkBlue}`,
     },
     primary: {
       main: `${blue}`,
@@ -36,7 +38,7 @@ export default createMuiTheme({
       xs: 360,
       sm: 410,
       md: 600,
-      lg: 960,
+      lg: 980,
       xl: 1200,
     },
   },

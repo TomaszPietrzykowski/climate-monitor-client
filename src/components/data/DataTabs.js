@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     height: 278,
     width: 266,
-    // borderBottom: "1px solid rgba(0,0,0,.12)",
+    borderBottom: "1px solid transparent",
     borderRadius: 4,
     margin: "3rem",
     display: "flex",
@@ -35,11 +35,16 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     transition: "all 0.1s",
     "&:hover": {
-      borderBottom: "1px solid rgba(0,0,0,.12)",
-      transform: "scale(1.02)",
+      borderBottom: `1px solid ${theme.palette.primary.dark}`,
     },
     "&:hover $tabImg": {
       opacity: 1,
+    },
+    "&:hover $tabText": {
+      color: theme.palette.primary.dark,
+    },
+    "&:hover $tabTitle": {
+      color: theme.palette.primary.dark,
     },
   },
   tabImg: {

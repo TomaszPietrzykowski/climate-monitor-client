@@ -1,5 +1,5 @@
 import React from "react";
-import loader from "../../assets/globespinner.gif";
+import loader from "../../assets/loader.gif";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   label: {
     ...theme.typography.tab,
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.dark,
     fontSize: "1.2rem",
     fontWeight: 400,
     marginTop: "2rem",

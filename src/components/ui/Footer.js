@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   footerImg: {
+    opacity: 0,
     height: "13rem",
     verticalAlign: "bottom",
     [theme.breakpoints.down("md")]: {

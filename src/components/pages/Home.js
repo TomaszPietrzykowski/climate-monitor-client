@@ -4,7 +4,7 @@ import Hero from "../home/Hero";
 import Slogan from "../home/Slogan";
 import LatestReadings from "../home/LatestReadings";
 import Description from "../home/Description";
-import Separator from "../ui/Separator";
+// import Separator from "../ui/Separator";
 import Amazon from "../home/Amazon";
 import GetInvolved from "../home/GetInvolved";
 
@@ -14,7 +14,7 @@ const Home = ({ setValue }) => {
       <Slogan />
       <Hero setValue={setValue} />
       <LatestReadings setValue={setValue} />
-      <Separator />
+      {/* <Separator /> */}
       <Description />
       <Amazon setValue={setValue} />
       <GetInvolved setValue={setValue} />

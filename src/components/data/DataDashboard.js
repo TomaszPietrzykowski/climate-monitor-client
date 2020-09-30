@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
     // border: "1px solid red",
     height: "100%",
     overflow: "auto",
-    paddingTop: "3.5rem",
   },
   list: {
     marginBottom: "10rem",
     listStyle: "none",
+    marginTop: "3.5rem",
   },
   listItem: {
     border: "1px solid transparent",
