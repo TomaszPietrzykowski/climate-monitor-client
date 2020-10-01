@@ -27,12 +27,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-start",
     maxWidth: 1600,
-
-    // border: "1px solid green",
   },
   drawer: {
     minWidth: drawerWidth,
-    // border: "1px solid red",
     height: "100%",
     overflow: "auto",
   },
@@ -63,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     fontSize: "2rem",
     padding: "3rem",
-    // border: "1px solid blue",
   },
   link: {
     textDecoration: "none",
@@ -84,35 +80,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DataDashboard = () => {
-  // const activeDataset = datasets[dataset];
-  // const [activeData, setActiveData] = useState(activeDataset.scopes[0]);
-  // const [index, setIndex] = useState(0);
-  // const [loading, setLoading] = useState(false);
   const classes = useStyles();
-
-  // useEffect(() => {
-  //   getData(activeDataset.scopes[0].endpoint);
-  //   setIndex(0);
-  //   // eslint-disable-next-line
-  // }, [dataset]);
-
-  // const getData = async (endpoint) => {
-  //   setLoading(true);
-  //   try {
-  //     const res = await fetch(
-  //       `https://api.climatemonitor.info/api/v1/chartdata/${endpoint}`
-  //     );
-  //     const data = await res.json();
-  //     setActiveData(data.data);
-  //     setLoading(false);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // const scrollUp = () => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
 
   return (
     <Fragment>
