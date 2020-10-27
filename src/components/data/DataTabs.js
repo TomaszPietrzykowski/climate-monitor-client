@@ -102,14 +102,6 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1rem",
     }
   },
-  // subHeader: {
-  //   width: "100%",
-  //   textAlign: "center",
-  //   paddingBottom: "2rem",
-  //   fontFamily: "Poppins",
-  //   fontSize: "1rem",
-  //   color: theme.palette.text.secondary,
-  // },
 }));
 
 const DataTabs = () => {

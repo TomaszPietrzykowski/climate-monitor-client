@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import { Link } from "react-router-dom";
 import DevTag from "./DevTag";
-import bear from "../../assets/bear.png";
+import reef from "../../assets/reef10.png";
 import Facebook from "@material-ui/icons/Facebook";
 import Twitter from "@material-ui/icons/Twitter";
 import Instagram from "@material-ui/icons/Instagram";
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   footerImg: {
-    opacity: 0,
+    opacity: 1,
     height: "13rem",
     verticalAlign: "bottom",
     [theme.breakpoints.down("md")]: {
@@ -220,7 +220,7 @@ const Footer = ({ setValue }) => {
             </Grid>
           </Grid>
         </Hidden>
-        <img src={bear} alt="polar bear" className={classes.footerImg} />
+        <img src={reef} alt="polar bear" className={classes.footerImg} />
         <Grid container justify="flex-end" className={classes.social}>
           <Grid
             item
