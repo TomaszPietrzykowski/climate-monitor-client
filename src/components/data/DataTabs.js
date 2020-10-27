@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     marginBottom: "10rem",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "4rem",
+    }
   },
   container: {
     width: "100%",
@@ -23,13 +26,17 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "center",
     padding: "2rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem",
+      paddingTop: 0
+    }
   },
   tab: {
     height: 278,
     width: 266,
     borderBottom: "1px solid transparent",
     borderRadius: 4,
-    margin: "3rem",
+    margin: "2.5rem",
     display: "flex",
     flexDirection: "column",
     cursor: "pointer",
@@ -46,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover $tabTitle": {
       color: theme.palette.primary.dark,
     },
+    [theme.breakpoints.down("xs")]: {
+      margin: "auto",
+      marginTop: "3rem"
+    }
   },
   tabImg: {
     flex: 1,
@@ -70,7 +81,6 @@ const useStyles = makeStyles((theme) => ({
   tabText: {
     fontSize: "0.85rem",
     fontWeight: 400,
-    // fontFamily: "Roboto",
     color: theme.palette.text.secondary,
     padding: "0rem 1rem .6rem 0rem",
     textAlign: "left",
@@ -78,11 +88,19 @@ const useStyles = makeStyles((theme) => ({
   header: {
     width: "100%",
     textAlign: "center",
-    padding: "2rem 0 1rem 0",
+    paddingLeft: "2rem",
+    paddingRight: "2rem",
     marginTop: "4rem",
     fontFamily: "Poppins",
     fontSize: "1.4rem",
     color: theme.palette.text.primary,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.2rem",
+      marginTop: "3rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1rem",
+    }
   },
   // subHeader: {
   //   width: "100%",
@@ -102,9 +120,6 @@ const DataTabs = () => {
       <div className={classes.header}>
         Categories contain multiple sets of data
       </div>
-      {/* <div className={classes.subHeader}>
-        availaible as a chart with adjustable scope or json API
-      </div> */}
       <div className={classes.container}>
         <div className={classes.tab}>
           <div

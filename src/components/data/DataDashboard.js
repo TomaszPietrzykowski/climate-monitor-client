@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.4rem",
     marginLeft: 37,
     padding: "1rem",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: 20
+    }
   },
   container: {
     display: "flex",
