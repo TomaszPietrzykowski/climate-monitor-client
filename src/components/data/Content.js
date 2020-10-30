@@ -1,21 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Content = ({ activeData }) => {
-  console.log(activeData);
+
+  const [displayData, setDisplayData] = useState(activeData) // displayData separated from activeData in purpose of scoping chart
   return (
-    <div style={{ padding: "10rem" }}>
-      <h2>{activeData.title}</h2>
+    <div style={{ padding: "2rem" }}>
+      <h2>Dataset title: {displayData.title}</h2>
       <br />
       <br />
       <br />
       <br />
       <br />
-      <h5>{activeData.description}</h5>
+      <h5>Dataset description: {displayData.description}</h5>
+      <br />
+  {displayData.labels && displayData.labels.map((label, i) => <div key={label}>{label} - {displayData.values[i]}</div>)}
+      <br />      
       <br />
       <br />
-      <h5>{activeData.lastUpdate}</h5>
-      <br />
-      <br />
+      <h5>Last updated: {displayData.lastUpdate}</h5>
       <br />
       <br />
       <p>
