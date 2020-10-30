@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
+import { Link } from "react-router-dom"
 import thumb01 from "../../assets/co2tab.jpg";
 import thumb02 from "../../assets/ch4tab.jpg";
 import thumb03 from "../../assets/sf6tab.jpg";
@@ -31,19 +32,17 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: 0
     }
   },
+  link: {
+    textDecoration: "none"
+  },
   tab: {
     height: 278,
     width: 266,
-    borderBottom: "1px solid transparent",
-    borderRadius: 4,
     margin: "2.5rem",
     display: "flex",
     flexDirection: "column",
     cursor: "pointer",
-    transition: "all 0.1s",
-    "&:hover": {
-      borderBottom: `1px solid ${theme.palette.primary.dark}`,
-    },
+    transition: "all 0.3s",
     "&:hover $tabImg": {
       opacity: 1,
     },
@@ -64,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     borderRadius: "4px 4px 0 0",
     opacity: 0.7,
+    [theme.breakpoints.down("md")]: {
+      opacity: 1
+    }
   },
   tabContent: {
     flex: 1,
@@ -113,6 +115,7 @@ const DataTabs = () => {
         Categories contain multiple sets of data
       </div>
       <div className={classes.container}>
+        <Link to="/co2" className={classes.link}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
@@ -126,6 +129,8 @@ const DataTabs = () => {
             </div>
           </div>
         </div>
+        </Link>
+        <Link to="/ch4" className={classes.link}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
@@ -139,6 +144,8 @@ const DataTabs = () => {
             </div>
           </div>
         </div>
+        </Link>
+        <Link to="/sf6" className={classes.link}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
@@ -152,6 +159,8 @@ const DataTabs = () => {
             </div>
           </div>
         </div>
+        </Link>
+        <Link to="/n2o" className={classes.link}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
@@ -165,6 +174,8 @@ const DataTabs = () => {
             </div>
           </div>
         </div>
+        </Link>
+        <Link to="/temperatures" className={classes.link}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
@@ -178,6 +189,8 @@ const DataTabs = () => {
             </div>
           </div>
         </div>
+        </Link>
+        <Link to="/sealevels" className={classes.link}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
@@ -191,6 +204,8 @@ const DataTabs = () => {
             </div>
           </div>
         </div>
+        </Link>
+        <Link to="/glaciers" className={classes.link}>
         <div className={classes.tab}>
           <div
             className={classes.tabImg}
@@ -204,6 +219,7 @@ const DataTabs = () => {
             </div>
           </div>
         </div>
+        </Link>
       </div>
     </div>
   );
