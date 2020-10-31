@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Chart from "./Chart"
 
 const Content = ({ activeData }) => {
 
@@ -8,6 +9,7 @@ const Content = ({ activeData }) => {
       <h2>Dataset title: {displayData.title}</h2>
       <br />
       <br />
+      <Chart displayData={displayData} />
       <br />
       <br />
       <br />

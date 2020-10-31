@@ -15,6 +15,11 @@ export default createMuiTheme({
       footer: `${whitish}`,
       darkBlue: `${darkBlue}`,
     },
+    gradient: {
+      grad01: "rgba(0, 255, 0, 0)",
+      grad02: "rgba(0, 191, 255, 0.1)",
+      grad03: "rgba(0, 191, 255, 0.4)"
+    },
     primary: {
       main: `${blue}`,
     },
