@@ -18,9 +18,8 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Chart = ({ displayData }) => {
+const Chart = ({ displayData, label }) => {
 
-  const { labels, values, title } = displayData
   const theme = useTheme()
   const classes = useStyles()
 
@@ -32,11 +31,11 @@ const Chart = ({ displayData }) => {
     gradient.addColorStop(1, theme.palette.gradient.grad03)
 
     return {
-      labels: labels,
+      labels: displayData.labels,
       datasets: [
         {
-          label: title,
-          data: values,
+          label: label,
+          data: displayData.values,
           backgroundColor: gradient,
           borderColor: theme.palette.gradient.grad03,
           borderWidth: 2.5

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles'
+
 import Chart from "./Chart"
+import RangeSlider from "./RangeSlider";
 
 const useStyles = makeStyles(theme => ({
   contentContainer: {
@@ -8,28 +10,49 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column"
   },
   title: {
-    margin: "3.5rem"
+    padding: "5rem",
+    fontFamily: "Poppins",
+    fontWeight: 400,
+    color: theme.palette.text.primary,
+    fontSize: "1.6rem",
   }
 }))
 
 const Content = ({ activeData }) => {
 
   const classes = useStyles()
+  const [displayData, setDisplayData] = useState({})
 
-  const [displayData, setDisplayData] = useState(activeData) // displayData separated from activeData in purpose of scoping chart
+    const initialLabels = activeData.labels
+    const initialValues = activeData.values
   
+  const updateActiveValues = range => {
+
+    const outputLabels = initialLabels.slice(range.min, range.max + 1)
+    const outputValues = initialValues.slice(range.min, range.max + 1)
+
+  setDisplayData({
+    labels: outputLabels,
+    values: outputValues
+  })
+}
+
   return (
     <div className={classes.contentContainer}>
-      <div className={classes.title}>{displayData.title}</div>
+      <div className={classes.title}>{activeData.title}</div>
+      <br />
+      {(displayData.trend && displayData.trend.length > 1) && <h3 style={{marginLeft: "5rem"}}>show trend</h3>}
       <br />
       <br />
-      <Chart displayData={displayData} />
+      <RangeSlider activeData={activeData} updateActiveValues={updateActiveValues} />
+      <br />
+      <Chart displayData={displayData} label={activeData.title}/>
       <br />
       <br />
       <br />
       <h5>Dataset description: {displayData.description}</h5>
       <br />
-  {displayData.labels && displayData.labels.map((label, i) => <div key={label}>{label} - {displayData.values[i]}</div>)}
+  {activeData.labels && activeData.labels.map((label, i) => <div key={label}>{label} - {activeData.values[i]}</div>)}
       <br />      
       <br />
       <br />

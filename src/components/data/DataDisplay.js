@@ -26,12 +26,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-start",
     maxWidth: 1600,
-
-    // border: "1px solid green",
   },
   drawer: {
     minWidth: drawerWidth,
-    // border: "1px solid red",
     height: "100%",
     overflow: "auto",
   },
@@ -79,7 +76,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     fontSize: "2rem",
     padding: "3rem",
-    // border: "1px solid blue",
   },
   link: {
     textDecoration: "none",
@@ -147,7 +143,7 @@ const DataDisplay = ({ dataset }) => {
             </div>
           </div>
         </Hidden>
-        {loading ? <h1>fetching data</h1> : <Content activeData={activeData} />}
+        {(loading || !activeData.labels) ? <h1>fetching data</h1> : <Content activeData={activeData} />}
       </div>
     </Fragment>
   );
