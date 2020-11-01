@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React from "react"
 import { useTheme, makeStyles } from '@material-ui/core/styles'
 import { Line } from "react-chartjs-2"
 
@@ -6,8 +6,15 @@ const useStyles = makeStyles(theme => ({
     chartContainer: {
         position: "relative",
         height: "60vh",
+        width: "calc(90vw - 320px)",
         margin: "1rem",
         padding: "1rem 2rem",
+        [theme.breakpoints.down("md")]: {
+          height: "60vh",
+          width: "95vw",
+          margin: "auto",
+          padding: "1rem",
+        }
     }
 }))
 
@@ -16,10 +23,6 @@ const Chart = ({ displayData }) => {
   const { labels, values, title } = displayData
   const theme = useTheme()
   const classes = useStyles()
-
-  const lineChart = useRef()
-
-
 
   const chartData = canvas => {
     const ctx = canvas.getContext("2d")
@@ -49,20 +52,9 @@ const Chart = ({ displayData }) => {
     redraw: true
   }
 
-//   const ro = new ResizeObserver(entries => {
-//     for (let entry of entries) {
-//       const cr = entry.contentRect;
-//       console.log('Element:', entry.target);
-//       console.log(`Element size: ${cr.width}px x ${cr.height}px`);
-//     }
-//   });
-//   ro.observe(lineChart.current)
-// console.log(lineChart)
-
-
   return (
-    <div ref={lineChart} className={classes.chartContainer}>
-      <Line data={chartData} options={chartOptions}  />
+    <div className={classes.chartContainer}>
+      <Line data={chartData} options={chartOptions}/>
     </div>
   )
 }

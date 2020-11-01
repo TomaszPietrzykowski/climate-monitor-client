@@ -1,12 +1,26 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { makeStyles } from '@material-ui/core/styles'
 import Chart from "./Chart"
+
+const useStyles = makeStyles(theme => ({
+  contentContainer: {
+    display: "flex",
+    flexDirection: "column"
+  },
+  title: {
+    margin: "3.5rem"
+  }
+}))
 
 const Content = ({ activeData }) => {
 
+  const classes = useStyles()
+
   const [displayData, setDisplayData] = useState(activeData) // displayData separated from activeData in purpose of scoping chart
+  
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Dataset title: {displayData.title}</h2>
+    <div className={classes.contentContainer}>
+      <div className={classes.title}>{displayData.title}</div>
       <br />
       <br />
       <Chart displayData={displayData} />
