@@ -44,19 +44,19 @@ const Content = ({ activeData }) => {
       {(displayData.trend && displayData.trend.length > 1) && <h3 style={{marginLeft: "5rem"}}>show trend</h3>}
       <br />
       <br />
-      <RangeSlider activeData={activeData} updateActiveValues={updateActiveValues} />
+      <RangeSlider activeData={activeData} updateActiveValues={updateActiveValues} style={{passive: "false"}}/>
       <br />
       <Chart displayData={displayData} label={activeData.title}/>
       <br />
       <br />
       <br />
-      <h5>Dataset description: {displayData.description}</h5>
+      <h5>Dataset description: {activeData.description}</h5>
       <br />
   {activeData.labels && activeData.labels.map((label, i) => <div key={label}>{label} - {activeData.values[i]}</div>)}
       <br />      
       <br />
       <br />
-      <h5>Last updated: {displayData.lastUpdate}</h5>
+      <h5>Last updated: {activeData.lastUpdate}</h5>
       <br />
       <br />
       <p>
