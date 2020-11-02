@@ -54,7 +54,7 @@ const Chart = ({ displayData, label }) => {
     responsive: true,
     maintainAspectRatio: false,
     legend: { display: true },
-    redraw: true
+    redraw: true,
   }
 
   return (

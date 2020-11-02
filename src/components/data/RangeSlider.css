@@ -1,5 +1,5 @@
 /* Chart Slider Styles */
-/* prevent error: Unable to preventDefault inside passive event listener: */
+/* prevent error: "Unable to preventDefault inside passive event listener": */
 * {
   touch-action: none;
 }

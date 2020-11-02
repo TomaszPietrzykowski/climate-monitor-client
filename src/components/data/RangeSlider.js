@@ -21,7 +21,14 @@ const RangeSlider = ({ activeData, updateActiveValues }) => {
     setValue({ min: 0, max: activeData.labels.length -1 })
   }, [activeData])
 
-
+const handleChange = value => {
+  if (value.min < 0) {
+    value.min = 0
+  } else if (value.max > initialRange) {
+    value.max = initialRange
+  }
+  setValue(value)
+}
 
   return (
       <div className="slidercontainer">
@@ -29,12 +36,21 @@ const RangeSlider = ({ activeData, updateActiveValues }) => {
           <InputRange
             maxValue={initialRange}
             minValue={0}
-            formatLabel={value =>
-              `${activeData.labels[value] ||
-                activeData.labels[value -1]}`
-            }
+            draggableTrack={true}
+            formatLabel={value => {
+              if (typeof value === "undefined") {
+                return ""
+              } else {
+                let string = activeData.labels[value] ||
+                activeData.labels[value -1] || ""
+                if (string.split(".").length === 2) {
+                  string = string.split(".")[0]
+                }
+              return `${string}`
+              }
+            }}
             value={value}
-            onChange={value => setValue(value)}
+            onChange={value => handleChange(value)}
           />
         </div>
       </div>
