@@ -5,6 +5,7 @@ import Hidden from "@material-ui/core/Hidden";
 import { datasets } from "./Datasets";
 
 import Content from "./Content";
+import Loader from "../ui/Loader"
 
 const drawerWidth = "360px";
 
@@ -83,6 +84,10 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
   },
+  // loaderContainer: {
+  //   // minHeight: "90vh",
+  //   width: "100%",
+  // }
 }));
 
 const DataDisplay = ({ dataset }) => {
@@ -146,7 +151,7 @@ const DataDisplay = ({ dataset }) => {
             </div>
           </div>
         </Hidden>
-        {(loading || !activeData.labels) ? <h1>fetching data</h1> : <Content activeData={activeData} />}
+        {(loading || !activeData.labels) ? <div style={{width: "100%", marginTop: "7rem"}} ><Loader /></div> : <Content activeData={activeData} />}
       </div>
     </Fragment>
   );
