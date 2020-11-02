@@ -24,9 +24,7 @@ const RangeSlider = ({ activeData, updateActiveValues }) => {
 
 
   return (
-    <div>
       <div className="slidercontainer">
-        {/* <div className="sliderlabel">Data range:</div> */}
         <div className="slider">
           <InputRange
             maxValue={initialRange}
@@ -40,7 +38,6 @@ const RangeSlider = ({ activeData, updateActiveValues }) => {
           />
         </div>
       </div>
-    </div>
   )
 }
 

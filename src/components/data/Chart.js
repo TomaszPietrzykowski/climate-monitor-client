@@ -10,10 +10,16 @@ const useStyles = makeStyles(theme => ({
         margin: "1rem",
         padding: "1rem 2rem",
         [theme.breakpoints.down("md")]: {
-          height: "60vh",
+          height: "45vh",
           width: "95vw",
           margin: "auto",
           padding: "1rem",
+        },
+        [theme.breakpoints.down("sm")]: {
+          height: "35vh",
+        },
+        [theme.breakpoints.down("xs")]: {
+          height: "25vh",
         }
     }
 }))

@@ -10,7 +10,7 @@ exports.datasets = {
       },
       { title: "CO2 increase Global", endpoint: "annual_co2_increase_gl" },
       { title: "Monthly CO2 Mauna Loa", endpoint: "monthly_co2_ml" },
-      { title: "Annual CO2 increase Global", endpoint: "monthly_co2_gl" },
+      { title: "Monthly CO2 Global", endpoint: "monthly_co2_gl" },
       { title: "Weekly CO2 Mauna Loa", endpoint: "weekly_co2" },
       { title: "Daily CO2 Mauna Loa", endpoint: "daily_co2" },
     ],
