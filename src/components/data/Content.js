@@ -44,6 +44,15 @@ const useStyles = makeStyles(theme => ({
       paddingRight: "1rem",
       fontSize: ".8rem",
     },
+  },
+  tempContainer: {
+    padding: "4rem",
+    [theme.breakpoints.down('md')]: {
+      padding: "3rem",
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: "2rem",
+    },
   }
 }))
 
@@ -76,7 +85,9 @@ const Content = ({ activeData }) => {
       <div className={classes.sliderLabel}>Data scope:</div>
       <RangeSlider activeData={activeData} updateActiveValues={updateActiveValues} style={{passive: "false"}}/>
       <br />
+      {activeData.unit}
       <br />
+      <div className={classes.tempContainer}>
       <h5>Dataset description: {activeData.description}</h5>
       <br />
   {activeData.labels && activeData.labels.map((label, i) => <div key={label}>{label} - {activeData.values[i]}</div>)}
@@ -100,6 +111,7 @@ const Content = ({ activeData }) => {
         varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
         Lorem donec massa sapien faucibus et molestie ac.
       </p>
+      </div>
     </div>
   );
 };

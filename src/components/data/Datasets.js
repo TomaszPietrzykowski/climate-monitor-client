@@ -83,26 +83,26 @@ exports.datasets = {
         title: "Monthly land anomaly minimum",
         endpoint: "monthly_land_temp_anomaly_min",
       },
-      {
-        title: "Monthly land and ocean",
-        endpoint: "monthly_loc_temp",
-      },
-      {
-        title: "Monthly land and ocean anomaly",
-        endpoint: "monthly_loc_temp_anomaly",
-      },
-      {
-        title: "Daily land anomaly average",
-        endpoint: "daily_land_temp_anomaly_avg",
-      },
-      {
-        title: "Daily land anomaly maximum",
-        endpoint: "daily_land_temp_anomaly_max",
-      },
-      {
-        title: "Daily land anomaly minimum",
-        endpoint: "daily_land_temp_anomaly_min",
-      },
+      // {
+      //   title: "Monthly land and ocean",
+      //   endpoint: "monthly_loc_temp",
+      // },
+      // {
+      //   title: "Monthly land and ocean anomaly",
+      //   endpoint: "monthly_loc_temp_anomaly",
+      // },
+      // {
+      //   title: "Daily land anomaly average",
+      //   endpoint: "daily_land_temp_anomaly_avg",
+      // },
+      // {
+      //   title: "Daily land anomaly maximum",
+      //   endpoint: "daily_land_temp_anomaly_max",
+      // },
+      // {
+      //   title: "Daily land anomaly minimum",
+      //   endpoint: "daily_land_temp_anomaly_min",
+      // },
     ],
   },
   sealevels: {

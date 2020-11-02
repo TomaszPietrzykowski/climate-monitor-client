@@ -1,12 +1,10 @@
 /* Chart Slider Styles */
-/* prevent error: "Unable to preventDefault inside passive event listener": */
-* {
-  touch-action: none;
-}
+
 .slidercontainer {
   display: flex;
   flex-direction: column;
   padding: 1rem 5.5rem;
+  touch-action: none;
 }
 
 @media (max-width: 1660px) {

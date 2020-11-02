@@ -1,5 +1,6 @@
 import React from "react"
 import { useTheme, makeStyles } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { Line } from "react-chartjs-2"
 
 const useStyles = makeStyles(theme => ({
@@ -28,6 +29,7 @@ const Chart = ({ displayData, label }) => {
 
   const theme = useTheme()
   const classes = useStyles()
+  const isMobile = useMediaQuery('(max-width:600px)')
 
   const chartData = canvas => {
     const ctx = canvas.getContext("2d")
@@ -44,7 +46,10 @@ const Chart = ({ displayData, label }) => {
           data: displayData.values,
           backgroundColor: gradient,
           borderColor: theme.palette.gradient.grad03,
-          borderWidth: 2.5
+          borderWidth: 2.5,
+          pointBorderColor: "rgba(0,0,0,0)",
+          pointBackgroundColor: "rgba(0,0,0,0)",
+          lineTension: 0
         }
       ]
     }
@@ -53,7 +58,7 @@ const Chart = ({ displayData, label }) => {
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
-    legend: { display: true },
+    legend: { display: !isMobile },
     redraw: true,
   }
 
