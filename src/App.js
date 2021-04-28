@@ -7,7 +7,7 @@ import ScrollToTop from "./components/ui/ScrollToTop";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
 import Home from "./components/pages/Home";
-import News from "./components/news/News";
+import News from "./components/pages/News";
 import Data from "./components/pages/Data";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
@@ -83,11 +83,7 @@ function App() {
                 <Data {...props} dataset={"glaciers"} setValue={setValue} />
               )}
             />
-            <Route
-              exact
-              path="/news"
-              render={(props) => <News {...props} setValue={setValue} />}
-            />
+            <Route exact path="/news" component={News} />
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/public_api" component={PublicAPI} />
