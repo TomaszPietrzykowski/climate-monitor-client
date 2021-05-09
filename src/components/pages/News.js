@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   container: {
-    maxWidth: 1400,
+    maxWidth: 1300,
     margin: "auto",
     minHeight: "100vh",
   },
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   newsContainer: {
     width: "100%",
-    maxWidth: 1400,
+    maxWidth: 1300,
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
