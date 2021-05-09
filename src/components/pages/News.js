@@ -1,11 +1,50 @@
 import React, { useState, useEffect } from "react"
 import Pagination from "@material-ui/lab/Pagination"
 import { makeStyles } from "@material-ui/core/styles"
+import NewsTab from "../news/NewsTab"
 
 const useStyles = makeStyles((theme) => ({
-  container: { maxWidth: 1400, margin: "auto", minHeight: "100vh" },
+  titleBar: {
+    width: "100%",
+    zIndex: theme.zIndex.drawer + 1,
+    background: `linear-gradient(120deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
+  },
+  poweredBy: {
+    fontFamily: "Poppins",
+    fontWeight: 400,
+    color: theme.palette.text.secondary,
+    fontSize: ".9rem",
+    margin: "4rem 0",
+    width: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+    "& > * + *": {
+      marginLeft: ".5rem",
+      textDecoration: "none",
+      "&:hover": {
+        color: theme.palette.text.primary,
+        textDecoration: "underline",
+      },
+    },
+  },
+  sectionHeader: {
+    fontFamily: "Poppins",
+    fontWeight: 400,
+    color: "white",
+    fontSize: "1.4rem",
+    marginLeft: 37,
+    padding: "1rem",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: 20,
+    },
+  },
+  container: {
+    maxWidth: 1400,
+    margin: "auto",
+    minHeight: "100vh",
+  },
   paginationContainer: {
-    margin: "3rem",
+    margin: "auto",
     width: "100%",
     display: "flex",
     justifyContent: "center",
@@ -14,6 +53,18 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem",
     "& > * + *": {
       marginTop: theme.spacing(2),
+    },
+  },
+  newsContainer: {
+    width: "100%",
+    maxWidth: 1400,
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    padding: "0 2rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem",
+      paddingTop: 0,
     },
   },
 }))
@@ -33,6 +84,11 @@ const News = () => {
       const data = await res.json()
       setArticles(data.articles)
       setPages(data.pages)
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      })
       setLoading(false)
     } catch (err) {
       console.log(err)
@@ -49,42 +105,50 @@ const News = () => {
   }, [page])
 
   return (
-    <div className={classes.container}>
-      <h1>News1</h1>
-      {!loading && pages > 1 && (
-        <div className={classes.paginationContainer}>
-          <div className={classes.paginationRoot}>
-            <Pagination count={pages} page={page} onChange={handleChange} />
-          </div>
-        </div>
-      )}
-      {loading ? (
-        <h2>loading</h2>
-      ) : (
-        articles.map((article) => (
-          <div
-            key={article.title}
-            style={{ display: "flex", marginBottom: "2rem" }}
+    <>
+      <div className={classes.titleBar}>
+        <div className={classes.sectionHeader}>Climate news</div>
+      </div>
+      <div className={classes.container}>
+        <div className={classes.poweredBy}>
+          <span>Powered by: </span>
+          <a
+            href="https://newsapi.org"
+            target="_blank"
+            style={{ color: "inherit" }}
           >
-            <img
-              src={article.image}
-              alt={article.title}
-              style={{ width: 300, height: 300 }}
-            />
-            <div style={{ padding: "3rem" }}>
-              <h4>{article.title}</h4>
+            {" "}
+            NewsAPI
+          </a>
+        </div>
+        {!loading && pages > 1 && (
+          <div className={classes.paginationContainer}>
+            <div className={classes.paginationRoot}>
+              <Pagination count={pages} page={page} onChange={handleChange} />
             </div>
           </div>
-        ))
-      )}
-      {!loading && pages > 1 && (
-        <div className={classes.paginationContainer}>
-          <div className={classes.paginationRoot}>
-            <Pagination count={pages} page={page} onChange={handleChange} />
+        )}
+        {loading ? (
+          <h2>loading</h2>
+        ) : (
+          <div className={classes.newsContainer}>
+            {articles.map((article) => (
+              <NewsTab article={article} />
+            ))}
           </div>
-        </div>
-      )}
-    </div>
+        )}
+        {!loading && pages > 1 && (
+          <div
+            className={classes.paginationContainer}
+            style={{ marginBottom: "3rem" }}
+          >
+            <div className={classes.paginationRoot}>
+              <Pagination count={pages} page={page} onChange={handleChange} />
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   )
 }
 
