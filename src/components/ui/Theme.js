@@ -1,10 +1,10 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles"
 
-const blue = "rgba(0, 170, 255, 1)";
-const darkBlue = "rgba(0, 118, 178, 1)";
-const orange = "#ffba60";
-const whitish = "rgba(215, 215, 220, 1)";
-const green = "	rgba(71, 199, 27, 1)";
+const blue = "rgba(0, 170, 255, 1)"
+const darkBlue = "rgba(0, 118, 178, 1)"
+const orange = "#ffba60"
+const whitish = "rgba(215, 215, 220, 1)"
+const green = "	rgba(71, 199, 27, 1)"
 
 export default createMuiTheme({
   palette: {
@@ -18,13 +18,13 @@ export default createMuiTheme({
     gradient: {
       grad01: "rgba(0, 255, 0, 0)",
       grad02: "rgba(0, 191, 255, 0.1)",
-      grad03: "rgba(0, 191, 255, 0.4)"
+      grad03: "rgba(0, 191, 255, 0.4)",
     },
     primary: {
       main: `${blue}`,
     },
     secondary: {
-      main: `${whitish}`,
+      main: `#ffffff`,
     },
   },
   typography: {
@@ -47,4 +47,4 @@ export default createMuiTheme({
       xl: 1200,
     },
   },
-});
+})

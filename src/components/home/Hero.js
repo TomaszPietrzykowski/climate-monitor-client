@@ -1,8 +1,8 @@
-import React from "react";
-import { makeStyles } from "@material-ui/styles";
-import { Spring, animated } from "react-spring/renderprops";
+import React from "react"
+import { makeStyles } from "@material-ui/styles"
+import { Spring, animated } from "react-spring/renderprops"
 
-import hero from "../../assets/hero.jpg";
+import hero from "../../assets/hero.jpg"
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -70,10 +70,10 @@ const useStyles = makeStyles((theme) => ({
   blue: {
     color: theme.palette.primary.main,
   },
-}));
+}))
 
-const Hero = ({ setValue }) => {
-  const classes = useStyles();
+const Hero = () => {
+  const classes = useStyles()
 
   return (
     <Spring
@@ -91,7 +91,7 @@ const Hero = ({ setValue }) => {
         </animated.div>
       )}
     </Spring>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

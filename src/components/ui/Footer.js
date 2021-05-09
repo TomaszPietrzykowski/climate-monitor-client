@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
-import { makeStyles } from "@material-ui/styles";
-import Grid from "@material-ui/core/Grid";
-import Hidden from "@material-ui/core/Hidden";
-import { Link } from "react-router-dom";
-import DevTag from "./DevTag";
-import reef from "../../assets/reef10.png";
-import Facebook from "@material-ui/icons/Facebook";
-import Twitter from "@material-ui/icons/Twitter";
-import Instagram from "@material-ui/icons/Instagram";
+import React, { Fragment } from "react"
+import { makeStyles } from "@material-ui/styles"
+import Grid from "@material-ui/core/Grid"
+import Hidden from "@material-ui/core/Hidden"
+import { Link } from "react-router-dom"
+import DevTag from "./DevTag"
+import reef from "../../assets/reef10.png"
+import Facebook from "@material-ui/icons/Facebook"
+import Twitter from "@material-ui/icons/Twitter"
+import Instagram from "@material-ui/icons/Instagram"
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -71,10 +71,10 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "0.5rem",
     },
   },
-}));
+}))
 
 const Footer = ({ setValue }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Fragment>
@@ -109,7 +109,7 @@ const Footer = ({ setValue }) => {
                   item
                   className={classes.link}
                   component={Link}
-                  to="/co2"
+                  to="/data/co2"
                   onClick={() => setValue(1)}
                 >
                   Carbon dioxide CO2
@@ -118,7 +118,7 @@ const Footer = ({ setValue }) => {
                   item
                   className={classes.link}
                   component={Link}
-                  to="/ch4"
+                  to="/data/ch4"
                   onClick={() => setValue(1)}
                 >
                   Methane CH4
@@ -127,7 +127,7 @@ const Footer = ({ setValue }) => {
                   item
                   className={classes.link}
                   component={Link}
-                  to="/sf6"
+                  to="/data/sf6"
                   onClick={() => setValue(1)}
                 >
                   Sulfur hexafluoride SF6
@@ -136,7 +136,7 @@ const Footer = ({ setValue }) => {
                   item
                   className={classes.link}
                   component={Link}
-                  to="/n2o"
+                  to="/data/n2o"
                   onClick={() => setValue(1)}
                 >
                   Dinitrogen oxide N2O
@@ -149,7 +149,7 @@ const Footer = ({ setValue }) => {
                   item
                   className={classes.link}
                   component={Link}
-                  to="/temperatures"
+                  to="/data/temperatures"
                   onClick={() => setValue(1)}
                 >
                   Temperatures
@@ -158,7 +158,7 @@ const Footer = ({ setValue }) => {
                   item
                   className={classes.link}
                   component={Link}
-                  to="/sealevels"
+                  to="/data/sealevels"
                   onClick={() => setValue(1)}
                 >
                   Sea levels
@@ -167,7 +167,7 @@ const Footer = ({ setValue }) => {
                   item
                   className={classes.link}
                   component={Link}
-                  to="/glaciers"
+                  to="/data/glaciers"
                   onClick={() => setValue(1)}
                 >
                   Glaciers
@@ -253,7 +253,7 @@ const Footer = ({ setValue }) => {
         <DevTag />
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

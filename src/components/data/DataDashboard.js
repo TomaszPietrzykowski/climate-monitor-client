@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import Hidden from "@material-ui/core/Hidden";
+import React, { Fragment } from "react"
+import { Link } from "react-router-dom"
+import { makeStyles } from "@material-ui/core/styles"
+import Hidden from "@material-ui/core/Hidden"
 // import { datasets } from "./Datasets";
 // import BackIcon from "@material-ui/icons/ArrowBack";
 
-import DataTabs from "./DataTabs";
+import DataTabs from "./DataTabs"
 
-const drawerWidth = "360px";
+const drawerWidth = "360px"
 
 const useStyles = makeStyles((theme) => ({
   titleBar: {
@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 37,
     padding: "1rem",
     [theme.breakpoints.down("md")]: {
-      marginLeft: 20
-    }
+      marginLeft: 20,
+    },
   },
   container: {
     display: "flex",
@@ -80,10 +80,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
     fontSize: "1rem",
   },
-}));
+}))
 
 const DataDashboard = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Fragment>
@@ -96,41 +96,41 @@ const DataDashboard = () => {
           <div className={classes.drawer}>
             <ul className={classes.list}>
               <li>
-                <Link to="/co2" className={classes.link}>
+                <Link to="/data/co2" className={classes.link}>
                   <div className={classes.listItem}>Carbon dioxide CO2</div>
                 </Link>
               </li>
 
               <li>
-                <Link to="/ch4" className={classes.link}>
+                <Link to="/data/ch4" className={classes.link}>
                   <div className={classes.listItem}>Methane CH4</div>
                 </Link>
               </li>
 
               <li>
-                <Link to="/sf6" className={classes.link}>
+                <Link to="/data/sf6" className={classes.link}>
                   <div className={classes.listItem}>
                     Sulfur hexafluoride SF6
                   </div>
                 </Link>
               </li>
               <li>
-                <Link to="/n2o" className={classes.link}>
+                <Link to="/data/n2o" className={classes.link}>
                   <div className={classes.listItem}>Dinitrogen oxide N2O</div>
                 </Link>
               </li>
               <li>
-                <Link to="/temperatures" className={classes.link}>
+                <Link to="/data/temperatures" className={classes.link}>
                   <div className={classes.listItem}>Temperatures</div>
                 </Link>
               </li>
               <li>
-                <Link to="/sealevels" className={classes.link}>
+                <Link to="/data/sealevels" className={classes.link}>
                   <div className={classes.listItem}>Sea Levels</div>
                 </Link>
               </li>
               <li>
-                <Link to="/glaciers" className={classes.link}>
+                <Link to="/data/glaciers" className={classes.link}>
                   <div className={classes.listItem}>Glaciers</div>
                 </Link>
               </li>
@@ -140,7 +140,7 @@ const DataDashboard = () => {
         <DataTabs />
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default DataDashboard;
+export default DataDashboard

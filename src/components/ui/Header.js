@@ -1,34 +1,34 @@
-import React, { Fragment, useEffect, useState } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { makeStyles } from "@material-ui/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import React, { Fragment, useEffect, useState } from "react"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import useScrollTrigger from "@material-ui/core/useScrollTrigger"
+import { makeStyles } from "@material-ui/styles"
+import Tabs from "@material-ui/core/Tabs"
+import Tab from "@material-ui/core/Tab"
+import Button from "@material-ui/core/Button"
+import { Link } from "react-router-dom"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { useTheme } from "@material-ui/core/styles"
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
+import IconButton from "@material-ui/core/IconButton"
+import MenuIcon from "@material-ui/icons/Menu"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemText from "@material-ui/core/ListItemText"
 
-import logo from "../../assets/logotype.svg";
+import logo from "../../assets/logotype.svg"
 
 function ElevationScroll(props) {
-  const { children } = props;
+  const { children } = props
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
-  });
+  })
 
   return React.cloneElement(children, {
     elevation: trigger ? 4 : 0,
-  });
+  })
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -136,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
     },
     opacity: 0.5,
   },
-}));
+}))
 
 const routes = [
   { name: "Home", link: "/" },
@@ -145,32 +145,32 @@ const routes = [
   { name: "About", link: "/about" },
   { name: "Contact", link: "/contact" },
   { name: "Public API", link: "/public_api" },
-];
+]
 
 const Header = ({ value, setValue }) => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const classes = useStyles()
+  const theme = useTheme()
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
+  const matches = useMediaQuery(theme.breakpoints.down("md"))
 
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false)
 
   useEffect(() => {
     routes.forEach((route, i) => {
       switch (window.location.pathname) {
         case `${route.link}`:
-          if (value !== i) setValue(i);
-          break;
+          if (value !== i) setValue(i)
+          break
         default:
-          break;
+          break
       }
-    });
+    })
     // eslint-disable-next-line
-  }, [value, routes]);
+  }, [value, routes])
 
   const handleChange = (e, value) => {
-    setValue(value);
-  };
+    setValue(value)
+  }
 
   const tabs = (
     <Fragment>
@@ -178,7 +178,7 @@ const Header = ({ value, setValue }) => {
         value={value}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicatorColor="primary"
+        indicatorColor="secondary"
       >
         {routes.map(
           (route, i) =>
@@ -204,7 +204,7 @@ const Header = ({ value, setValue }) => {
         Public API
       </Button>
     </Fragment>
-  );
+  )
 
   const drawer = (
     <Fragment>
@@ -223,8 +223,8 @@ const Header = ({ value, setValue }) => {
               key={`${route.link}`}
               disableRipple
               onClick={() => {
-                setOpenDrawer(false);
-                setValue(i);
+                setOpenDrawer(false)
+                setValue(i)
               }}
               divider
               button
@@ -261,7 +261,7 @@ const Header = ({ value, setValue }) => {
         <MenuIcon className={classes.drawerIcon} />
       </IconButton>
     </Fragment>
-  );
+  )
 
   return (
     <Fragment>
@@ -287,7 +287,7 @@ const Header = ({ value, setValue }) => {
       </ElevationScroll>
       <div className={classes.toolbarMargin} />
     </Fragment>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

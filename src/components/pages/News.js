@@ -3,8 +3,15 @@ import Pagination from "@material-ui/lab/Pagination"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
-  paginationRoot: {
+  container: { maxWidth: 1400, margin: "auto", minHeight: "100vh" },
+  paginationContainer: {
     margin: "3rem",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+  },
+  paginationRoot: {
+    margin: "1rem",
     "& > * + *": {
       marginTop: theme.spacing(2),
     },
@@ -42,11 +49,13 @@ const News = () => {
   }, [page])
 
   return (
-    <div style={{ maxWidth: 1400, margin: "auto" }}>
+    <div className={classes.container}>
       <h1>News1</h1>
       {!loading && pages > 1 && (
-        <div className={classes.paginationRoot}>
-          <Pagination count={pages} page={page} onChange={handleChange} />
+        <div className={classes.paginationContainer}>
+          <div className={classes.paginationRoot}>
+            <Pagination count={pages} page={page} onChange={handleChange} />
+          </div>
         </div>
       )}
       {loading ? (
@@ -69,8 +78,10 @@ const News = () => {
         ))
       )}
       {!loading && pages > 1 && (
-        <div className={classes.root}>
-          <Pagination count={pages} page={page} onChange={handleChange} />
+        <div className={classes.paginationContainer}>
+          <div className={classes.paginationRoot}>
+            <Pagination count={pages} page={page} onChange={handleChange} />
+          </div>
         </div>
       )}
     </div>

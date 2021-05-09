@@ -1,13 +1,13 @@
-import React from "react";
-import { makeStyles } from "@material-ui/styles";
+import React from "react"
+import { makeStyles } from "@material-ui/styles"
 import { Link } from "react-router-dom"
-import thumb01 from "../../assets/co2tab.jpg";
-import thumb02 from "../../assets/ch4tab.jpg";
-import thumb03 from "../../assets/sf6tab.jpg";
-import thumb04 from "../../assets/n2otab.jpg";
-import thumb05 from "../../assets/temperaturestab.jpg";
-import thumb06 from "../../assets/sealevelstab.jpg";
-import thumb07 from "../../assets/glacierstab.jpg";
+import thumb01 from "../../assets/co2tab.jpg"
+import thumb02 from "../../assets/ch4tab.jpg"
+import thumb03 from "../../assets/sf6tab.jpg"
+import thumb04 from "../../assets/n2otab.jpg"
+import thumb05 from "../../assets/temperaturestab.jpg"
+import thumb06 from "../../assets/sealevelstab.jpg"
+import thumb07 from "../../assets/glacierstab.jpg"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "10rem",
     [theme.breakpoints.down("md")]: {
       marginBottom: "4rem",
-    }
+    },
   },
   container: {
     width: "100%",
@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
     padding: "2rem",
     [theme.breakpoints.down("md")]: {
       padding: "1rem",
-      paddingTop: 0
-    }
+      paddingTop: 0,
+    },
   },
   link: {
-    textDecoration: "none"
+    textDecoration: "none",
   },
   tab: {
     height: 278,
@@ -54,8 +54,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       margin: "auto",
-      marginTop: "3rem"
-    }
+      marginTop: "3rem",
+    },
   },
   tabImg: {
     flex: 1,
@@ -64,8 +64,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "4px 4px 0 0",
     opacity: 0.7,
     [theme.breakpoints.down("md")]: {
-      opacity: 1
-    }
+      opacity: 1,
+    },
   },
   tabContent: {
     flex: 1,
@@ -102,12 +102,12 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "1rem",
-    }
+    },
   },
-}));
+}))
 
 const DataTabs = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
@@ -115,114 +115,114 @@ const DataTabs = () => {
         Categories contain multiple sets of data
       </div>
       <div className={classes.container}>
-        <Link to="/co2" className={classes.link}>
-        <div className={classes.tab}>
-          <div
-            className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb01})` }}
-          ></div>
-          <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Carbon dioxide</div>
-            <div className={classes.tabText}>
-              Atmospheric CO2 is the most known and the most human dependant
-              greenhouse gas.
+        <Link to="/data/co2" className={classes.link}>
+          <div className={classes.tab}>
+            <div
+              className={classes.tabImg}
+              style={{ backgroundImage: `url(${thumb01})` }}
+            ></div>
+            <div className={classes.tabContent}>
+              <div className={classes.tabTitle}>Carbon dioxide</div>
+              <div className={classes.tabText}>
+                Atmospheric CO2 is the most known and the most human dependant
+                greenhouse gas.
+              </div>
             </div>
           </div>
-        </div>
         </Link>
-        <Link to="/ch4" className={classes.link}>
-        <div className={classes.tab}>
-          <div
-            className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb02})` }}
-          ></div>
-          <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Methane</div>
-            <div className={classes.tabText}>
-              Greenhouse gas 30 to 70 times more potent then carbon dioxide.
-              Assiciated e.g. with agriculture.
+        <Link to="/data/ch4" className={classes.link}>
+          <div className={classes.tab}>
+            <div
+              className={classes.tabImg}
+              style={{ backgroundImage: `url(${thumb02})` }}
+            ></div>
+            <div className={classes.tabContent}>
+              <div className={classes.tabTitle}>Methane</div>
+              <div className={classes.tabText}>
+                Greenhouse gas 30 to 70 times more potent then carbon dioxide.
+                Assiciated e.g. with agriculture.
+              </div>
             </div>
           </div>
-        </div>
         </Link>
-        <Link to="/sf6" className={classes.link}>
-        <div className={classes.tab}>
-          <div
-            className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb03})` }}
-          ></div>
-          <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Sulfur hexafluoride</div>
-            <div className={classes.tabText}>
-              Carbon dioxide is the most known and the most human dependant
-              greenhouse gas.
+        <Link to="/data/sf6" className={classes.link}>
+          <div className={classes.tab}>
+            <div
+              className={classes.tabImg}
+              style={{ backgroundImage: `url(${thumb03})` }}
+            ></div>
+            <div className={classes.tabContent}>
+              <div className={classes.tabTitle}>Sulfur hexafluoride</div>
+              <div className={classes.tabText}>
+                Carbon dioxide is the most known and the most human dependant
+                greenhouse gas.
+              </div>
             </div>
           </div>
-        </div>
         </Link>
-        <Link to="/n2o" className={classes.link}>
-        <div className={classes.tab}>
-          <div
-            className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb04})` }}
-          ></div>
-          <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Dinitrogen oxide</div>
-            <div className={classes.tabText}>
-              Carbon dioxide is the most known and the most human dependant
-              greenhouse gas.
+        <Link to="/data/n2o" className={classes.link}>
+          <div className={classes.tab}>
+            <div
+              className={classes.tabImg}
+              style={{ backgroundImage: `url(${thumb04})` }}
+            ></div>
+            <div className={classes.tabContent}>
+              <div className={classes.tabTitle}>Dinitrogen oxide</div>
+              <div className={classes.tabText}>
+                Carbon dioxide is the most known and the most human dependant
+                greenhouse gas.
+              </div>
             </div>
           </div>
-        </div>
         </Link>
-        <Link to="/temperatures" className={classes.link}>
-        <div className={classes.tab}>
-          <div
-            className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb05})` }}
-          ></div>
-          <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Temperatures</div>
-            <div className={classes.tabText}>
-              Carbon dioxide is the most known and the most human dependant
-              greenhouse gas.
+        <Link to="/data/temperatures" className={classes.link}>
+          <div className={classes.tab}>
+            <div
+              className={classes.tabImg}
+              style={{ backgroundImage: `url(${thumb05})` }}
+            ></div>
+            <div className={classes.tabContent}>
+              <div className={classes.tabTitle}>Temperatures</div>
+              <div className={classes.tabText}>
+                Carbon dioxide is the most known and the most human dependant
+                greenhouse gas.
+              </div>
             </div>
           </div>
-        </div>
         </Link>
-        <Link to="/sealevels" className={classes.link}>
-        <div className={classes.tab}>
-          <div
-            className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb06})` }}
-          ></div>
-          <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Sea levels</div>
-            <div className={classes.tabText}>
-              Carbon dioxide is the most known and the most human dependant
-              greenhouse gas.
+        <Link to="/data/sealevels" className={classes.link}>
+          <div className={classes.tab}>
+            <div
+              className={classes.tabImg}
+              style={{ backgroundImage: `url(${thumb06})` }}
+            ></div>
+            <div className={classes.tabContent}>
+              <div className={classes.tabTitle}>Sea levels</div>
+              <div className={classes.tabText}>
+                Carbon dioxide is the most known and the most human dependant
+                greenhouse gas.
+              </div>
             </div>
           </div>
-        </div>
         </Link>
-        <Link to="/glaciers" className={classes.link}>
-        <div className={classes.tab}>
-          <div
-            className={classes.tabImg}
-            style={{ backgroundImage: `url(${thumb07})` }}
-          ></div>
-          <div className={classes.tabContent}>
-            <div className={classes.tabTitle}>Glaciers</div>
-            <div className={classes.tabText}>
-              Carbon dioxide is the most known and the most human dependant
-              greenhouse gas.
+        <Link to="/data/glaciers" className={classes.link}>
+          <div className={classes.tab}>
+            <div
+              className={classes.tabImg}
+              style={{ backgroundImage: `url(${thumb07})` }}
+            ></div>
+            <div className={classes.tabContent}>
+              <div className={classes.tabTitle}>Glaciers</div>
+              <div className={classes.tabText}>
+                Carbon dioxide is the most known and the most human dependant
+                greenhouse gas.
+              </div>
             </div>
           </div>
-        </div>
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DataTabs;
+export default DataTabs
