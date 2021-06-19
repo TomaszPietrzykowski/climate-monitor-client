@@ -1,7 +1,7 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { makeStyles } from "@material-ui/styles"
-import { Spring, animated } from "react-spring/renderprops"
-
+import { Button } from "@material-ui/core"
 import hero from "../../assets/hero.jpg"
 
 const useStyles = makeStyles((theme) => ({
@@ -11,11 +11,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100%",
-    minHeight: "400px",
+    minHeight: "600px",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
     position: "relative",
     [theme.breakpoints.down("md")]: {
       minHeight: "300px",
@@ -28,17 +25,30 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       width: "100%",
       height: "100%",
-      backgroundColor: "rgba(0,0,0,.4)",
+      background:
+        "linear-gradient(90deg, rgba(0, 27, 51, 1), 80%, rgba(0, 27, 51, 0.3))",
+      zIndex: 1,
     },
+  },
+  container: {
+    width: "100%",
+    maxWidth: 1400,
+    margin: "auto",
+    padding: "3rem",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    zIndex: 2,
   },
   title: {
     fontFamily: "Poppins, sans",
-    fontSize: "5.5rem",
+    fontSize: "4rem",
     fontWeight: 500,
+    lineHeight: 1.2,
+    letterSpacing: 3,
     color: "white",
     marginBottom: "1rem",
-    textShadow: "0px 0px 3px rgba(0, 0, 0, 1)",
-    zIndex: 1,
+
     [theme.breakpoints.down("md")]: {
       fontSize: "4rem",
     },
@@ -52,11 +62,11 @@ const useStyles = makeStyles((theme) => ({
   },
   subtitle: {
     fontFamily: "Poppins, sans",
-    fontSize: "2.8rem",
-    fontWeight: "500",
-    color: "white",
-    zIndex: 1,
-    textShadow: "0px 0px 3px rgba(0, 0, 0, 1)",
+    fontSize: "2.4rem",
+    fontWeight: 100,
+    letterSpacing: 10,
+    color: theme.palette.primary.main,
+    zIndex: 2,
     [theme.breakpoints.down("md")]: {
       fontSize: "2rem",
     },
@@ -67,8 +77,24 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1.2rem",
     },
   },
-  blue: {
-    color: theme.palette.primary.main,
+  btn: {
+    ...theme.typography.tab,
+    fontWeight: 400,
+    borderRadius: "50px",
+    color: "white",
+    fontFamily: "Poppins, sans",
+    fontSize: "1.2rem",
+    letterSpacing: 3,
+    border: "3px solid white",
+    textTransform: "uppercase",
+    padding: "0.7rem 3rem 0.7rem 2rem",
+    marginTop: "1rem",
+    marginLeft: 0,
+    [theme.breakpoints.down("xs")]: {
+      padding: "0.2rem 1rem",
+      fontSize: "0.8rem",
+      fontWeight: 500,
+    },
   },
 }))
 
@@ -76,21 +102,24 @@ const Hero = () => {
   const classes = useStyles()
 
   return (
-    <Spring
-      from={{ opacity: 0 }}
-      to={{ opacity: 1 }}
-      delay={1000}
-      config={{ mass: 100, tension: 280, friction: 120, clamp: true }}
-    >
-      {(props) => (
-        <animated.div style={props} className={classes.hero}>
-          <h1 className={classes.title}>
-            <span className={classes.blue}>c</span>limate monitor
-          </h1>
-          <h2 className={classes.subtitle}>json data on climate change</h2>
-        </animated.div>
-      )}
-    </Spring>
+    <div className={classes.hero}>
+      <div className={classes.container}>
+        <div className={classes.subtitle}>climate monitor</div>
+        <div className={classes.title}>
+          Free json data on
+          <br />
+          climate change
+        </div>
+        <Button
+          className={classes.btn}
+          variant="outlined"
+          component={Link}
+          to="/public_api"
+        >
+          &rarr;&nbsp; API Docs
+        </Button>
+      </div>
+    </div>
   )
 }
 
