@@ -115,6 +115,7 @@ const News = () => {
           <a
             href="https://newsapi.org"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "inherit" }}
           >
             {" "}

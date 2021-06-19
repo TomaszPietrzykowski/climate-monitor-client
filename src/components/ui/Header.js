@@ -33,11 +33,16 @@ function ElevationScroll(props) {
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    padding: "0 57px",
     backgroundColor: "white",
     zIndex: theme.zIndex.modal + 1,
+  },
+  toolBar: {
+    width: "100%",
+    maxWidth: 1400,
+    margin: "auto",
+    padding: "0 4rem",
     [theme.breakpoints.down("md")]: {
-      padding: "0 1rem",
+      padding: "0 2rem",
     },
   },
   toolbarMargin: {
@@ -184,6 +189,7 @@ const Header = ({ value, setValue }) => {
           (route, i) =>
             i < routes.length - 1 && (
               <Tab
+                disableRipple
                 key={`${route.link}${i}`}
                 className={classes.tab}
                 label={route.name}
@@ -267,7 +273,7 @@ const Header = ({ value, setValue }) => {
     <Fragment>
       <ElevationScroll>
         <AppBar className={classes.appBar}>
-          <Toolbar disableGutters={true}>
+          <Toolbar className={classes.toolBar} disableGutters={true}>
             <Button
               disableRipple
               className={classes.logoContainer}

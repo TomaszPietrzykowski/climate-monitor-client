@@ -11,15 +11,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100%",
-    minHeight: "600px",
     display: "flex",
     position: "relative",
-    [theme.breakpoints.down("md")]: {
-      minHeight: "300px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      minHeight: "250px",
-    },
+    // [theme.breakpoints.down("md")]: {
+    //   minHeight: "300px",
+    // },
+    // [theme.breakpoints.down("sm")]: {
+    //   minHeight: "250px",
+    // },
     "&::after": {
       content: '""',
       position: "absolute",
@@ -33,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
   container: {
     width: "100%",
     maxWidth: 1400,
-    margin: "auto",
-    padding: "3rem",
+    margin: "5rem auto 3rem auto",
+    padding: "4rem",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-start",
@@ -47,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.2,
     letterSpacing: 3,
     color: "white",
-    marginBottom: "1rem",
+    margin: ".5rem 0",
 
     [theme.breakpoints.down("md")]: {
       fontSize: "4rem",
@@ -62,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subtitle: {
     fontFamily: "Poppins, sans",
-    fontSize: "2.4rem",
+    fontSize: "2rem",
     fontWeight: 100,
     letterSpacing: 10,
     color: theme.palette.primary.main,
@@ -83,12 +82,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     color: "white",
     fontFamily: "Poppins, sans",
-    fontSize: "1.2rem",
+    fontSize: "1.3rem",
     letterSpacing: 3,
     border: "3px solid white",
     textTransform: "uppercase",
-    padding: "0.7rem 3rem 0.7rem 2rem",
-    marginTop: "1rem",
+    padding: "0.5rem 3rem 0.5rem 2rem",
+    marginTop: "3rem",
     marginLeft: 0,
     [theme.breakpoints.down("xs")]: {
       padding: "0.2rem 1rem",
@@ -104,7 +103,7 @@ const Hero = () => {
   return (
     <div className={classes.hero}>
       <div className={classes.container}>
-        <div className={classes.subtitle}>climate monitor</div>
+        <div className={classes.subtitle}>Your eye on the climate</div>
         <div className={classes.title}>
           Free json data on
           <br />
@@ -116,7 +115,7 @@ const Hero = () => {
           component={Link}
           to="/public_api"
         >
-          &rarr;&nbsp; API Docs
+          &rarr;&nbsp; Public API
         </Button>
       </div>
     </div>

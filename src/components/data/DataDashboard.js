@@ -20,16 +20,22 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     color: "white",
     fontSize: "1.4rem",
-    marginLeft: 37,
     padding: "1rem",
     [theme.breakpoints.down("md")]: {
       marginLeft: 20,
     },
   },
+  sectionHeaderContainer: {
+    maxWidth: 1400,
+    margin: "auto",
+    padding: "0 4rem",
+  },
+
   container: {
     display: "flex",
     justifyContent: "flex-start",
-    maxWidth: 1600,
+    maxWidth: 1400,
+    margin: "auto",
   },
   drawer: {
     minWidth: drawerWidth,
@@ -88,7 +94,9 @@ const DataDashboard = () => {
   return (
     <Fragment>
       <div className={classes.titleBar}>
-        <div className={classes.sectionHeader}>All data</div>
+        <div className={classes.sectionHeader}>
+          <div className={classes.sectionHeaderContainer}>All data</div>
+        </div>
       </div>
       {/* <Toolbar /> */}
       <div className={classes.container}>

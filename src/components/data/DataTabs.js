@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 1600,
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center",
-    padding: "2rem",
+    justifyContent: "space-around",
+    padding: "2rem 0",
     [theme.breakpoints.down("md")]: {
       padding: "1rem",
       paddingTop: 0,
@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
   tab: {
     height: 278,
-    width: 266,
-    margin: "2.5rem",
+    maxWidth: 266,
+    margin: "1rem",
     display: "flex",
     flexDirection: "column",
     cursor: "pointer",

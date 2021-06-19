@@ -1,6 +1,5 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Link } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   tab: {
@@ -48,15 +47,6 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "underline",
     },
   },
-  //   tabDescription: {
-  //     flex: 1,
-  //     fontSize: ".85rem",
-  //     fontWeight: 400,
-  //     textOverflow: "elipsis",
-  //     color: theme.palette.text.secondary,
-  //     padding: ".3rem 1rem .8rem 0rem",
-  //     textAlign: "left",
-  //   },
   link: {
     textDecoration: "none",
   },
@@ -64,7 +54,12 @@ const useStyles = makeStyles((theme) => ({
 const NewsTab = ({ article }) => {
   const classes = useStyles()
   return (
-    <a href={article.url} className={classes.link} target="_blank">
+    <a
+      href={article.url}
+      className={classes.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div className={classes.tab}>
         <div
           className={classes.tabImg}
@@ -73,7 +68,6 @@ const NewsTab = ({ article }) => {
         <div className={classes.tabContent}>
           <div className={classes.tabTitle}>{article.title}</div>
         </div>
-        {/* <div className={classes.tabDescription}>{article.description}</div> */}
       </div>
     </a>
   )
